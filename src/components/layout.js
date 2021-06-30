@@ -1,23 +1,47 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
-import * as React from "react"
-import PropTypes from "prop-types"
+import React from "react"
+import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-
-import Header from "./header"
-import "./layout.css"
-
+import Header from "./Header"
+import Hero from "./Hero"
+import Trips from "./Trips"
+import Section from "./generic/Section"
+import { GlobalStyle } from "./styles/GlobalStyles"
+import Button from "./generic/Button"
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
+    query TripsQuery {
+      allTripsJson {
+        edges {
+          node {
+            name
+            alt
+            img {
+              childrenImageSharp {
+                gatsbyImageData(
+                  placeholder: BLURRED
+                  layout: FULL_WIDTH
+                  quality: 90
+                )
+              }
+            }
+          }
+        }
+      }
+      allInternationalTripsJson {
+        edges {
+          node {
+            name
+            alt
+            img {
+              childrenImageSharp {
+                gatsbyImageData(
+                  placeholder: BLURRED
+                  layout: FULL_WIDTH
+                  quality: 90
+                )
+              }
+            }
+          }
         }
       }
     }
@@ -25,31 +49,47 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
+      <GlobalStyle />
+      <Content>
+        <Button
+          onClick={() => {
+            window.location.href = "#hero"
           }}
+          round="true"
+          css={`
+            position: fixed;
+            bottom: 3vh;
+            right: 2vw;
+            z-index: 1;
+          `}
         >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
+          Scroll To Top
+        </Button>
+        <Header />
+        <Section id="hero">
+          <Hero />
+        </Section>
+        <Section id="trips">
+          <Trips
+            heading="Trending National Holiday Destinations"
+            data={data.allTripsJson.edges}
+          />
+        </Section>
+        <Section id="internationalTripstrips">
+          <Trips
+            heading="International Tour Packages"
+            data={data.allInternationalTripsJson.edges}
+          />
+        </Section>
+      </Content>
     </>
   )
 }
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+const Content = styled.div`
+  /* height: 100vh;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll; */
+`
 
 export default Layout

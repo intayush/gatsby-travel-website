@@ -1,0 +1,22 @@
+[
+  {
+    "img": "../assets/images/travel-1.jpg",
+    "alt": "Addu Atol",
+    "name": "Maldives"
+  },
+  {
+    "img": "../assets/images/travel-2.jpg",
+    "alt": "Gulmarg",
+    "name": "Kashmir"
+  },
+  {
+    "img": "../assets/images/travel-3.jpg",
+    "alt": "Kochi",
+    "name": "Kerela"
+  },
+  {
+    "img": "../assets/images/travel-4.jpg",
+    "alt": "Parvati Valley",
+    "name": "Himachal"
+  }
+]

@@ -1,0 +1,23 @@
+[
+    {
+      "img": "../assets/images/iceland.jpg",
+      "alt": "Iceland",
+      "name": "Iceland"
+    },
+    {
+      "img": "../assets/images/japan.jpg",
+      "alt": "Japan",
+      "name": "Japan"
+    },
+    {
+      "img": "../assets/images/italy.jpg",
+      "alt": "Italy",
+      "name": "Italy"
+    },
+    {
+      "img": "../assets/images/london.jpg",
+      "alt": "London",
+      "name": "London"
+    }
+  ]
+  
