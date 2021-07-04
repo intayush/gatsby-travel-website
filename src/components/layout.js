@@ -1,13 +1,28 @@
-import React from "react"
+import React, { useRef, useState, useEffect } from "react"
+import Loadable from "react-loadable"
 import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
 import Header from "./Header"
 import Hero from "./Hero"
 import Trips from "./Trips"
+//import Carousel from "./generic/Carousel"
 import Section from "./generic/Section"
 import { GlobalStyle } from "./styles/GlobalStyles"
 import Button from "./generic/Button"
-const Layout = ({ children }) => {
+import { useStaticQuery, graphql } from "gatsby"
+
+const Loading = styled.div`
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+`
+
+const LoadableComponent = Loadable({
+  loader: () => import("./generic/Carousel"),
+  loading: Loading,
+})
+
+const Layout = () => {
+  const ref = useRef(null)
   const data = useStaticQuery(graphql`
     query TripsQuery {
       allTripsJson {
@@ -20,24 +35,7 @@ const Layout = ({ children }) => {
                 gatsbyImageData(
                   placeholder: BLURRED
                   layout: FULL_WIDTH
-                  quality: 90
-                )
-              }
-            }
-          }
-        }
-      }
-      allInternationalTripsJson {
-        edges {
-          node {
-            name
-            alt
-            img {
-              childrenImageSharp {
-                gatsbyImageData(
-                  placeholder: BLURRED
-                  layout: FULL_WIDTH
-                  quality: 90
+                  quality: 85
                 )
               }
             }
@@ -46,6 +44,31 @@ const Layout = ({ children }) => {
       }
     }
   `)
+  const [isTripsAboutToBeVisible, setIsTripsAboutToBeVisible] = useState(false)
+  useEffect(() => {
+    let referenceToRef
+    const intersectionConfig = {
+      root: null,
+      threshold: 0,
+      rootMargin: "-5px",
+    }
+    const tripsObserver = new IntersectionObserver((entries, observer) => {
+      if (!isTripsAboutToBeVisible && entries[0].isIntersecting) {
+        setIsTripsAboutToBeVisible(true)
+      }
+    }, intersectionConfig)
+
+    if (ref.current) {
+      tripsObserver.observe(ref.current)
+      referenceToRef = ref.current
+    }
+
+    return () => {
+      if (referenceToRef) {
+        tripsObserver.unobserve(referenceToRef)
+      }
+    }
+  }, [ref, isTripsAboutToBeVisible])
 
   return (
     <>
@@ -60,7 +83,7 @@ const Layout = ({ children }) => {
             position: fixed;
             bottom: 3vh;
             right: 2vw;
-            z-index: 1;
+            z-index: 50;
           `}
         >
           Scroll To Top
@@ -75,11 +98,9 @@ const Layout = ({ children }) => {
             data={data.allTripsJson.edges}
           />
         </Section>
-        <Section id="internationalTripstrips">
-          <Trips
-            heading="International Tour Packages"
-            data={data.allInternationalTripsJson.edges}
-          />
+        <div ref={ref} id="tripSection" />
+        <Section id="carousel">
+          {isTripsAboutToBeVisible && <LoadableComponent />}
         </Section>
       </Content>
     </>
@@ -87,9 +108,7 @@ const Layout = ({ children }) => {
 }
 
 const Content = styled.div`
-  /* height: 100vh;
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll; */
+  padding-bottom: 7vh;
 `
 
 export default Layout

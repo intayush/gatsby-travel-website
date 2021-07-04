@@ -77,7 +77,6 @@ const Trips = ({ heading, data }) => {
       </HeadingContainer>
       <ProductWrapper>
         {getTrips(data)}
-        {/* <SlideLeft onClick={handleMoveLeft}>Click Here</SlideLeft> */}
       </ProductWrapper>
     </ProductContainer>
   )

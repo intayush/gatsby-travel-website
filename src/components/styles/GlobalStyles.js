@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -40,5 +41,11 @@ html {
 .carousel .slide img {
     min-width: 100vw;
     min-height: 100vh;  /* change this to whatever you want */
+}
+
+#tripSection {
+  width: 100vw;
+  height: 10px;
+  padding: 10px;
 }
 `

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react"
-import { Link } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { FaBars } from "react-icons/fa"
 import { MenuData } from "../data/MenuData"
-import logo from "../assets/images/logo.png"
 import Icons from "../data/MenuIcons"
 import MobileMenu from "./MobileMenu"
 
@@ -28,9 +27,14 @@ const Header = () => {
     window.addEventListener("scroll", changeNav)
   }, [])
   return (
-    <Nav active={scroll}>
+    <Nav active={scroll ? true : false}>
       <MobileMenu isOpen={isOpen} closeMenu={menuCloseHandler} />
-      <StyledImg src={logo} alt={""} />
+      <StaticImage
+        src="../assets/svg/logo.svg"
+        height={65}
+        alt=""
+        placeholder="tracedSVG"
+      />
       <Bars
         active={scroll}
         onClick={() => {
@@ -40,7 +44,7 @@ const Header = () => {
       <NavMenu>
         {MenuData.map((item, key) => {
           return (
-            <NavLink key={`navitem_${key}`} to={item.link} active={scroll}>
+            <NavLink key={`navitem_${key}`} href="/" active={scroll}>
               {Icons[key]}
               {item.title}
             </NavLink>
@@ -69,7 +73,7 @@ const Nav = styled.nav`
   }
 `
 
-const NavLink = styled(Link)`
+const NavLink = styled.a`
   color: ${({ active }) => (active ? "#000000" : "#ffffff")};
   display: flex;
   align-items: center;
@@ -79,7 +83,7 @@ const NavLink = styled(Link)`
   cursor: pointer;
 
   @media screen and (max-width: 960px) {
-    background: ${({ active }) => (active ? "#000000" : "#ffffff")};
+    background: ${({ active }) => (active ? "#ffffff" : "transparent")};
     transition: 0.8s all ease;
   }
 `
@@ -106,10 +110,4 @@ const NavMenu = styled.div`
   @media screen and (max-width: 786px) {
     display: none;
   }
-`
-
-const StyledImg = styled.img`
-  height: clamp(50%, 93%, 100%);
-  object-fit: cover;
-  object-position: bottom;
 `
