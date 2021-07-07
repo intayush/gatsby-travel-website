@@ -44,7 +44,7 @@ const Testimonials = () => {
                 margin-bottom: 1rem;
               `}
             />
-            <h3>Sean Michaels</h3>
+            <h3>Darshika</h3>
             <p>
               Thankyou Vacation Mantra for organizing a lovely family holiday. I
               had a wonderful experience with all the arrangements.
@@ -58,7 +58,7 @@ const Testimonials = () => {
                 margin-bottom: 1rem;
               `}
             />
-            <h3>Sara Kin</h3>
+            <h3>Pawan</h3>
             <p>
               Thankyou Vacation Mantra for organizing a lovely family holiday. I
               had a wonderful experience with all the arrangements.
