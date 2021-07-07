@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { FaBars } from "react-icons/fa"
@@ -7,6 +7,7 @@ import Icons from "../data/MenuIcons"
 import MobileMenu from "./MobileMenu"
 
 const Header = () => {
+  const ref = useRef(null)
   const [scroll, setScroll] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
 
@@ -17,7 +18,13 @@ const Header = () => {
   const changeNav = () => {
     if (window.scrollY >= 100) {
       setScroll(true)
+      if (ref.current) {
+        ref.current.style.height = "60px"
+      }
     } else {
+      if (ref.current) {
+        ref.current.style.height = "80px"
+      }
       setScroll(false)
     }
   }
@@ -27,13 +34,14 @@ const Header = () => {
     window.addEventListener("scroll", changeNav)
   }, [])
   return (
-    <Nav active={scroll ? true : false}>
+    <Nav active={scroll ? true : false} id="topNav" ref={ref}>
       <MobileMenu isOpen={isOpen} closeMenu={menuCloseHandler} />
       <StaticImage
         src="../assets/svg/logo.svg"
         height={65}
         alt=""
         placeholder="tracedSVG"
+        objectFit="contain"
       />
       <Bars
         active={scroll}
@@ -61,7 +69,7 @@ const Nav = styled.nav`
   background: ${({ active }) => (active ? "#ffffff" : "transparent")};
   height: 80px;
   display: flex;
-  padding: 0.5rem calc((100vw - 1300px) / 2);
+  padding: 0.5rem;
   z-index: 100;
   position: sticky;
   top: 0;
