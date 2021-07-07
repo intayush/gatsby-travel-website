@@ -2,6 +2,8 @@ import React, { useState, useEffect, useMemo } from "react"
 import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { useStaticQuery, graphql } from "gatsby"
+import Button from "./Button"
+import { ImLocation } from "react-icons/im"
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs"
 
 const Carousel = () => {
@@ -27,18 +29,24 @@ const Carousel = () => {
     }
   `)
   const [activeItem, setActiveItem] = useState(0)
-  const [width, setWidth] = useState(33.33)
+  const [width, setWidth] = useState(25)
   useEffect(() => {
     const resizeListener = () => {
-      if (window.innerWidth > 1200 && width !== 33.33) {
-        setWidth(33.33)
+      if (window.innerWidth > 1200 && width !== 25) {
+        setWidth(25)
       } else if (
         window.innerWidth <= 1200 &&
         window.innerWidth > 960 &&
+        width !== 33.33
+      ) {
+        setWidth(33.33)
+      } else if (
+        window.innerWidth <= 960 &&
+        window.innerWidth > 786 &&
         width !== 50
       ) {
         setWidth(50)
-      } else if (window.innerWidth <= 960 && width !== 100) {
+      } else if (window.innerWidth <= 786 && width !== 100) {
         setWidth(100)
       }
     }
@@ -48,7 +56,9 @@ const Carousel = () => {
 
   const scrollHandler = nowActive => {
     let visibleItems = 0
-    if (width === 33.33) {
+    if (width === 25) {
+      visibleItems = 3
+    } else if (width === 33.33) {
       visibleItems = 2
     } else if (width === 50) {
       visibleItems = 1
@@ -63,7 +73,9 @@ const Carousel = () => {
 
   const getItemsFromWidth = width => {
     let visibleItems = 0
-    if (width === 33.33) {
+    if (width === 25) {
+      visibleItems = 3
+    } else if (width === 33.33) {
       visibleItems = 2
     } else if (width === 50) {
       visibleItems = 1
@@ -80,12 +92,18 @@ const Carousel = () => {
       </HeadingContainer>
       <WindowWrapper>
         <Window>
-          <ScrollRight onClick={() => scrollHandler(activeItem + 1)}>
-            <ScrollRightIcon />
-          </ScrollRight>
-          <ScrollLeft onClick={() => scrollHandler(activeItem - 1)}>
-            <ScrollLeftIcon />
-          </ScrollLeft>
+          {activeItem + noOfItems - 1 !==
+            data.allInternationalTripsJson.edges.length - 1 &&
+            noOfItems < data.allInternationalTripsJson.edges.length && (
+              <ScrollRight onClick={() => scrollHandler(activeItem + 1)}>
+                <ScrollRightIcon />
+              </ScrollRight>
+            )}
+          {activeItem !== 0 && (
+            <ScrollLeft onClick={() => scrollHandler(activeItem - 1)}>
+              <ScrollLeftIcon />
+            </ScrollLeft>
+          )}
           <Reel style={{ transform: `translateX(-${activeItem * width}%)` }}>
             {data.allInternationalTripsJson.edges.map((item, index) => {
               const image = getImage(
@@ -96,7 +114,9 @@ const Carousel = () => {
                   key={`carousel_item_${index}`}
                   css={`
                     padding-right: ${(activeItem === index && noOfItems > 1) ||
-                    (noOfItems === 3 && activeItem + 1 === index)
+                    (noOfItems >= 3 &&
+                      activeItem < index &&
+                      index < noOfItems - 1)
                       ? "5px"
                       : "0px"};
                     padding-left: ${noOfItems > 1 && index > activeItem
@@ -105,6 +125,25 @@ const Carousel = () => {
                   `}
                 >
                   <ProductImg image={image} alt={item.node.alt} />
+                  <ProductInfo>
+                    <TextWrap>
+                      <ImLocation />
+                      <ProductTitle>{item.node.name}</ProductTitle>
+                    </TextWrap>
+                    <Button
+                      to="/trips"
+                      primary="true"
+                      round="true"
+                      css={`
+                        position: absolute;
+                        bottom: 2rem;
+                        transform: none;
+                        padding: 0.5rem 1rem;
+                      `}
+                    >
+                      Visit Destination
+                    </Button>
+                  </ProductInfo>
                 </Item>
               )
             })}
@@ -140,7 +179,7 @@ const ScrollRight = styled.div`
   border-bottom-right-radius: 10px;
   cursor: pointer;
 
-  @media screen and (max-width: 960px) {
+  @media screen and (max-width: 786px) {
     width: 10%;
   }
 
@@ -164,7 +203,7 @@ const ScrollLeft = styled.div`
   border-bottom-left-radius: 10px;
   cursor: pointer;
 
-  @media screen and (max-width: 960px) {
+  @media screen and (max-width: 786px) {
     width: 10%;
   }
 
@@ -181,15 +220,20 @@ const Reel = styled.div`
 `
 
 const Item = styled.div`
+  position: relative;
   display: inline-flex;
-  width: 33.33%;
+  width: 25%;
   height: 100%;
   //padding: 0px 10px;
   @media screen and (max-width: 1200px) {
-    width: 50%;
+    width: 33.33%;
   }
 
   @media screen and (max-width: 960px) {
+    width: 50%;
+  }
+
+  @media screen and (max-width: 786px) {
     width: 100%;
   }
 `
@@ -240,4 +284,31 @@ const HeadingUnderline = styled.div`
   background: #183d43;
 `
 
+const ProductInfo = styled.div`
+  left: 2.4vw;
+  position: absolute;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 2rem;
+
+  @media screen and (max-width: 280px) {
+    padding: 0 1rem;
+  }
+`
+const TextWrap = styled.div`
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 5rem;
+  margin-left: 1rem;
+  color: #ffffff;
+`
+const ProductTitle = styled.div`
+  font-weight: 400;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  color: #ffffff;
+`
 export default Carousel

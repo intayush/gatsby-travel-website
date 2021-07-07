@@ -168,13 +168,4 @@ const HeadingUnderline = styled.div`
   background: #183d43;
 `
 
-// const SlideLeft = styled.button`
-//   position: absolute;
-//   right: 0;
-//   height: 100%;
-//   width: 5%;
-//   background: black;
-//   opacity: 0.5;
-// `
-
 export default Trips

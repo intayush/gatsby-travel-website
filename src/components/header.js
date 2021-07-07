@@ -44,7 +44,7 @@ const Header = () => {
         objectFit="contain"
       />
       <Bars
-        active={scroll}
+        $active={scroll}
         onClick={() => {
           setIsOpen(true)
         }}
@@ -98,7 +98,7 @@ const NavLink = styled.a`
 
 const Bars = styled(FaBars)`
   display: none;
-  color: ${({ active }) => (active ? "#000000" : "#ffffff")};
+  color: ${({ $active }) => ($active ? "#1b4854" : "#ffffff")};
   transition: 0.8s all ease;
   @media screen and (max-width: 768px) {
     display: block;
