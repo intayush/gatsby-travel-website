@@ -73,39 +73,45 @@ const Carousel = () => {
 
   const noOfItems = useMemo(() => getItemsFromWidth(width), [width])
   return (
-    <WindowWrapper>
-      <Window>
-        <ScrollRight onClick={() => scrollHandler(activeItem + 1)}>
-          <ScrollRightIcon />
-        </ScrollRight>
-        <ScrollLeft onClick={() => scrollHandler(activeItem - 1)}>
-          <ScrollLeftIcon />
-        </ScrollLeft>
-        <Reel style={{ transform: `translateX(-${activeItem * width}%)` }}>
-          {data.allInternationalTripsJson.edges.map((item, index) => {
-            const image = getImage(
-              item.node.img.childrenImageSharp[0].gatsbyImageData
-            )
-            return (
-              <Item
-                key={`carousel_item_${index}`}
-                css={`
-                  padding-right: ${(activeItem === index && noOfItems > 1) ||
-                  (noOfItems === 3 && activeItem + 1 === index)
-                    ? "5px"
-                    : "0px"};
-                  padding-left: ${noOfItems > 1 && index > activeItem
-                    ? "5px"
-                    : "0px"};
-                `}
-              >
-                <ProductImg image={image} alt={item.node.alt} />
-              </Item>
-            )
-          })}
-        </Reel>
-      </Window>
-    </WindowWrapper>
+    <>
+      <HeadingContainer>
+        <ProductHeading>International Destinations</ProductHeading>
+        <HeadingUnderline />
+      </HeadingContainer>
+      <WindowWrapper>
+        <Window>
+          <ScrollRight onClick={() => scrollHandler(activeItem + 1)}>
+            <ScrollRightIcon />
+          </ScrollRight>
+          <ScrollLeft onClick={() => scrollHandler(activeItem - 1)}>
+            <ScrollLeftIcon />
+          </ScrollLeft>
+          <Reel style={{ transform: `translateX(-${activeItem * width}%)` }}>
+            {data.allInternationalTripsJson.edges.map((item, index) => {
+              const image = getImage(
+                item.node.img.childrenImageSharp[0].gatsbyImageData
+              )
+              return (
+                <Item
+                  key={`carousel_item_${index}`}
+                  css={`
+                    padding-right: ${(activeItem === index && noOfItems > 1) ||
+                    (noOfItems === 3 && activeItem + 1 === index)
+                      ? "5px"
+                      : "0px"};
+                    padding-left: ${noOfItems > 1 && index > activeItem
+                      ? "5px"
+                      : "0px"};
+                  `}
+                >
+                  <ProductImg image={image} alt={item.node.alt} />
+                </Item>
+              )
+            })}
+          </Reel>
+        </Window>
+      </WindowWrapper>
+    </>
   )
 }
 
@@ -134,6 +140,10 @@ const ScrollRight = styled.div`
   border-bottom-right-radius: 10px;
   cursor: pointer;
 
+  @media screen and (max-width: 960px) {
+    width: 10%;
+  }
+
   &:hover {
     opacity: 1;
   }
@@ -153,6 +163,10 @@ const ScrollLeft = styled.div`
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   cursor: pointer;
+
+  @media screen and (max-width: 960px) {
+    width: 10%;
+  }
 
   &:hover {
     opacity: 1;
@@ -202,6 +216,28 @@ const ScrollRightIcon = styled(BsChevronCompactRight)`
 const ScrollLeftIcon = styled(BsChevronCompactLeft)`
   font-size: 100px;
   color: white;
+`
+
+const ProductHeading = styled.div`
+  font-size: clamp(1.2rem, 4.5vw, 2rem);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #183d43;
+`
+
+const HeadingContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: fit-content;
+  margin-bottom: 4rem;
+`
+
+const HeadingUnderline = styled.div`
+  width: 20ch;
+  height: 4px;
+  background: #183d43;
 `
 
 export default Carousel

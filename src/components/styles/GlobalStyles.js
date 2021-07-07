@@ -45,7 +45,35 @@ html {
 
 #tripSection {
   width: 100vw;
-  height: 10px;
+  height: 5vh;
   padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-`
+
+.svg-calLoader {
+  width: 160px; height: 160px;
+ transform-origin: 115px 115px;
+ animation: 1.4s linear infinite loader-spin;
+}
+
+.cal-loader__plane { fill: #FFA500; }
+.cal-loader__path { stroke: #FFFFFF; animation: 1.4s ease-in-out infinite loader-path; }
+
+@keyframes loader-spin {
+ to{
+   transform: rotate(360deg);
+ }
+}
+@keyframes loader-path {
+ 0%{
+   stroke-dasharray:  0, 580, 0, 0, 0, 0, 0, 0, 0;
+ }
+ 50%{
+   stroke-dasharray: 0, 450, 10, 30, 10, 30, 10, 30, 10;
+ }
+ 100%{
+   stroke-dasharray: 0, 580, 0, 0, 0, 0, 0, 0, 0;
+ }
+}`
