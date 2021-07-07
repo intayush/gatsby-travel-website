@@ -4,6 +4,7 @@ import styled from "styled-components"
 import Header from "./Header"
 import Hero from "./Hero"
 import Trips from "./Trips"
+import Testimonials from "./Testimonials"
 //import Carousel from "./generic/Carousel"
 import Section from "./generic/Section"
 import { GlobalStyle } from "./styles/GlobalStyles"
@@ -127,6 +128,9 @@ const Layout = () => {
         </div>
         <Section id="carousel">
           {isTripsAboutToBeVisible && <LoadableComponent />}
+        </Section>
+        <Section id="testimonials">
+          <Testimonials />
         </Section>
       </Content>
     </>

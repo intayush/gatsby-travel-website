@@ -90,7 +90,13 @@ const Carousel = () => {
         <ProductHeading>International Destinations</ProductHeading>
         <HeadingUnderline />
       </HeadingContainer>
-      <WindowWrapper>
+      <WindowWrapper
+        data-aos="fade-up"
+        data-aos-offset="50"
+        data-aos-delay="100"
+        data-aos-duration="1200"
+        data-aos-easing="ease"
+      >
         <Window>
           {activeItem + noOfItems - 1 !==
             data.allInternationalTripsJson.edges.length - 1 &&
