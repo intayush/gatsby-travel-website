@@ -4,8 +4,9 @@ import styled from "styled-components"
 import Header from "./Header"
 import Hero from "./Hero"
 import Trips from "./Trips"
+import Email from "./Email"
+import Footer from "./Footer"
 import Testimonials from "./Testimonials"
-//import Carousel from "./generic/Carousel"
 import Section from "./generic/Section"
 import { GlobalStyle } from "./styles/GlobalStyles"
 import Button from "./generic/Button"
@@ -132,13 +133,18 @@ const Layout = () => {
         <Section id="testimonials">
           <Testimonials />
         </Section>
+        <Section id="emailSection">
+          <Email />
+        </Section>
+        <Section id="footer">
+          <Footer />
+        </Section>
       </Content>
     </>
   )
 }
 
 const Content = styled.div`
-  padding-bottom: 7vh;
 `
 
 export default Layout

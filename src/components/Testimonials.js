@@ -98,6 +98,7 @@ const Testimonials = () => {
 
 const TestimonialsContainer = styled.div`
   width: 100%;
+  margin-top: 4rem;
   background-color: #fcfcfc;
   color: #000;
   padding: 2rem;
@@ -128,12 +129,14 @@ const ContentWrapper = styled.div`
 const ColumnOne = styled.div`
   display: grid;
   grid-template-rows: 1fr 1fr;
+  padding: 1rem 0;
 `
 const ColumnTwo = styled.div`
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-gap: 10px;
   justify-content: center;
+  padding: 1rem 0;
 
   @media screen and (max-width: 500px) {
     grid-template-columns: 1fr;
