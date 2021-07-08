@@ -25,9 +25,21 @@ const Footer = () => {
           <FooterLink to="/about">About</FooterLink>
         </FooterLinkItems>
         <SocialIcons>
-          <FaFacebook size={40} />
-          <FaInstagram size={40} />
-          <FaWhatsapp size={40} />
+          <SocialLink
+            href="https://instagram.com/vacation_mantra_holidays/"
+            target="_blank"
+          >
+            <FaFacebook size={40} />
+          </SocialLink>
+          <SocialLink
+            href="https://instagram.com/vacation_mantra_holidays/"
+            target="_blank"
+          >
+            <FaInstagram size={40} />
+          </SocialLink>
+          <SocialLink href="https://wa.link/xh38ry" target="_blank">
+            <FaWhatsapp size={40} />
+          </SocialLink>
         </SocialIcons>
       </FooterLinkWrapper>
     </FooterContainer>
@@ -89,6 +101,19 @@ const SocialIcons = styled.div`
 
   @media screen and (max-width: 786px) {
     flex-direction: column;
+  }
+`
+
+const SocialLink = styled.a`
+  color: #1b4854;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+  &:hover {
+    color: #35859a;
+    transform: scale(1.2);
+  }
+  &:active {
+    color: #fdbc01;
   }
 `
 

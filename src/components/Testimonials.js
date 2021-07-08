@@ -26,7 +26,6 @@ const Testimonials = () => {
 
   return (
     <TestimonialsContainer>
-      {/* <TopLine>Testimonials</TopLine> */}
       <Description>What People are Saying</Description>
       <ContentWrapper className="aos">
         <ColumnOne
@@ -104,16 +103,10 @@ const TestimonialsContainer = styled.div`
   padding: 2rem;
   height: 100%;
 `
-const TopLine = styled.div`
-  color: #077bf1;
-  font-size: 2rem;
-  padding-left: 2rem;
-  margin-bottom: 0.75rem;
-`
 const Description = styled.p`
   text-align: start;
   padding-left: 2rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   font-size: clamp(1.5rem, 5vw, 2rem);
   font-weight: bold;
 `

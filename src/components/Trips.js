@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import styled from "styled-components"
 import AOS from "aos"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import Button from "./generic/Button"
+import Button from "./generic/LinkButton"
 import { ImLocation } from "react-icons/im"
 import { Helmet } from "react-helmet"
 
@@ -48,7 +48,8 @@ const Trips = ({ heading, data }) => {
               <ProductTitle>{item.node.name}</ProductTitle>
             </TextWrap>
             <Button
-              to="/trips"
+              swipe
+              to="/trip"
               primary="true"
               round="true"
               css={`
@@ -75,9 +76,7 @@ const Trips = ({ heading, data }) => {
         <ProductHeading>{heading}</ProductHeading>
         <HeadingUnderline />
       </HeadingContainer>
-      <ProductWrapper>
-        {getTrips(data)}
-      </ProductWrapper>
+      <ProductWrapper>{getTrips(data)}</ProductWrapper>
     </ProductContainer>
   )
 }

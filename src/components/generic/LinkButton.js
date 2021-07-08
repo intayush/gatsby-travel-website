@@ -1,7 +1,8 @@
 import styled from "styled-components"
-import { Link } from "gatsby"
+//import { Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
-export default styled(Link)`
+export default styled(AniLink)`
   background: ${({ primary }) => (primary ? "#fdc700" : "#1b4854")};
   white-space: nowrap;
   padding: ${({ big }) => (big ? "16px 40px" : "10px 32px")};

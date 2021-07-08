@@ -82,7 +82,7 @@ const Nav = styled.nav`
 `
 
 const NavLink = styled.a`
-  color: ${({ active }) => (active ? "#000000" : "#ffffff")};
+  color: ${({ active }) => (active ? "#1b4854" : "#ffffff")};
   display: flex;
   align-items: center;
   text-decoration: none;
