@@ -13,6 +13,10 @@ html {
     overflow-x: hidden;
 }
 
+body {
+  overflow: hidden;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   height: 8px;
