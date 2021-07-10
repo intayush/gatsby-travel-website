@@ -13,7 +13,7 @@ html {
     overflow-x: hidden;
 }
 
-body {
+.overflow-hidden {
   overflow: hidden;
 }
 

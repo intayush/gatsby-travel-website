@@ -6,8 +6,6 @@ const Section = ({ children, id }) => {
 }
 
 const StyledSection = styled.div`
-  /*height: 100vh;
-  scroll-snap-align: start; */
 `
 
 export default Section
