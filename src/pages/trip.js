@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import { GlobalStyle } from "../components/styles/GlobalStyles"
 import kashmirBg from "../assets/images/kashmir-trip.jpg"
-import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -15,13 +14,6 @@ const Trip = () => {
         <GlobalStyle />
         <PictureHeading>Kashmir</PictureHeading>
         <BigPicture>
-          <StaticImage
-            src="../assets/images/kashmir-trip.jpg"
-            alt=""
-            objectFit="cover"
-            placeholder="blurred"
-            layout="fullWidth"
-          />
         </BigPicture>
         <ShapeDivider>
           <svg
@@ -58,8 +50,8 @@ const BigPicture = styled.div`
   width: 100%;
   overflow: hidden;
   z-index: -1;
-  /* background: url(${kashmirBg}) no-repeat center;
-  background-size: cover; */
+  background: url(${kashmirBg}) no-repeat center;
+  background-size: cover;
 
   ::before {
     content: "";
