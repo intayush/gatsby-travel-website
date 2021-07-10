@@ -1,4 +1,5 @@
 import React, { useEffect } from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import AOS from "aos"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
@@ -6,7 +7,29 @@ import Button from "./generic/LinkButton"
 import { ImLocation } from "react-icons/im"
 import { Helmet } from "react-helmet"
 
-const Trips = ({ heading, data }) => {
+const Trips = () => {
+  const data = useStaticQuery(graphql`
+    query TripsQuery {
+      allTripsJson {
+        edges {
+          node {
+            name
+            alt
+            img {
+              childrenImageSharp {
+                gatsbyImageData(
+                  placeholder: BLURRED
+                  layout: FULL_WIDTH
+                  quality: 85
+                )
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
   useEffect(() => {
     AOS.init()
     AOS.refresh()
@@ -48,7 +71,6 @@ const Trips = ({ heading, data }) => {
               <ProductTitle>{item.node.name}</ProductTitle>
             </TextWrap>
             <Button
-              swipe
               to="/trip"
               primary="true"
               round="true"
@@ -73,10 +95,10 @@ const Trips = ({ heading, data }) => {
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
       </Helmet>
       <HeadingContainer>
-        <ProductHeading>{heading}</ProductHeading>
+        <ProductHeading>Trending National Holiday Destinations</ProductHeading>
         <HeadingUnderline />
       </HeadingContainer>
-      <ProductWrapper>{getTrips(data)}</ProductWrapper>
+      <ProductWrapper>{getTrips(data.allTripsJson.edges)}</ProductWrapper>
     </ProductContainer>
   )
 }

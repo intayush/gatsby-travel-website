@@ -47,7 +47,7 @@ body {
     min-height: 100vh;  /* change this to whatever you want */
 }
 
-#tripSection {
+.intersection {
   width: 100vw;
   height: 5vh;
   padding: 10px;
