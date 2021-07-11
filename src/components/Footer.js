@@ -52,8 +52,8 @@ const Footer = ({ themeChangeHandler }) => {
 const FooterContainer = styled.div`
   position: relative;
   padding: 3rem 2rem;
-  color: #000;
-  background: #fafafb;
+  color: ${({ theme }) => theme.color.secondary};
+  background: ${({ theme }) => theme.background.secondary};
 `
 const FooterLinkWrapper = styled.div`
   padding: 0 2rem;
@@ -90,7 +90,7 @@ const FooterLink = styled(Link)`
   text-decoration: none;
   margin-bottom: 0.5rem;
   font-size: 14px;
-  color: #3d3d4e;
+  color: ${({ theme }) => theme.color.primary};
 
   &:hover {
     color: #f26a2e;
@@ -109,7 +109,7 @@ const SocialIcons = styled.div`
 `
 
 const SocialLink = styled.a`
-  color: #1b4854;
+  color: ${({ theme }) => theme.color.primary};
   cursor: pointer;
   transition: all 0.5s ease-out;
   &:hover {
@@ -117,7 +117,7 @@ const SocialLink = styled.a`
     transform: scale(1.2);
   }
   &:active {
-    color: #fdbc01;
+    color: ${({ theme }) => theme.color.tertiary};
   }
 `
 const ThemeSwitchContainer = styled.main`
