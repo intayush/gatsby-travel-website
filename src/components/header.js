@@ -6,7 +6,9 @@ import { MenuData } from "../data/MenuData"
 import Icons from "../data/MenuIcons"
 import MobileMenu from "./MobileMenu"
 
-const Header = () => {
+const Header = ({
+  currentTheme
+}) => {
   const ref = useRef(null)
   const [scroll, setScroll] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
@@ -37,7 +39,7 @@ const Header = () => {
     <Nav active={scroll ? true : false} id="topNav" ref={ref}>
       <MobileMenu isOpen={isOpen} closeMenu={menuCloseHandler} />
       <StaticImage
-        src="../assets/svg/logo.svg"
+        src={`../assets/svg/logo.svg`}
         height={65}
         alt=""
         placeholder="tracedSVG"
@@ -66,7 +68,7 @@ const Header = () => {
 export default Header
 
 const Nav = styled.nav`
-  background: ${({ active }) => (active ? "#ffffff" : "transparent")};
+  background: ${({ active, theme }) => (active ? theme.background.secondary : "transparent")};
   height: 80px;
   display: flex;
   padding: 0.5rem;
@@ -76,13 +78,13 @@ const Nav = styled.nav`
   transition: 0.8s all ease;
 
   @media screen and (max-width: 960px) {
-    background: ${({ active }) => (active ? "#ffffff" : "transparent")};
+    background: ${({ active, theme }) => (active ? theme.background.secondary : "transparent")};
     transition: 0.8s all ease;
   }
 `
 
 const NavLink = styled.a`
-  color: ${({ active }) => (active ? "#1b4854" : "#ffffff")};
+  color: ${({ active, theme }) => (active ? theme.color.primary : "#ffffff")};
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -91,14 +93,14 @@ const NavLink = styled.a`
   cursor: pointer;
 
   @media screen and (max-width: 960px) {
-    background: ${({ active }) => (active ? "#ffffff" : "transparent")};
+    background: ${({ active, theme }) => (active ? theme.background.secondary : "transparent")};
     transition: 0.8s all ease;
   }
 `
 
 const Bars = styled(FaBars)`
   display: none;
-  color: ${({ $active }) => ($active ? "#1b4854" : "#ffffff")};
+  color: ${({ $active, theme }) => ($active ? theme.color.primary : "#ffffff")};
   transition: 0.8s all ease;
   @media screen and (max-width: 768px) {
     display: block;

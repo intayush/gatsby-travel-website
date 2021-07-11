@@ -155,7 +155,7 @@ const IndexPage = () => {
             </svg>
           )}
         </div>
-        <Section id="testimonials" className="overflow-hidden">
+        <Section id="testimonials">
           {isTestimonialsAboutToBeVisible && <LoadableTestimonials />}
         </Section>
         <div ref={emailSectionRef} className="intersection">

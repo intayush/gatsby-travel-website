@@ -98,8 +98,8 @@ const Testimonials = () => {
 const TestimonialsContainer = styled.div`
   width: 100%;
   margin-top: 4rem;
-  background-color: #fcfcfc;
-  color: #000;
+  background-color: ${({ theme }) => theme.background.primary};
+  color: ${({ theme }) => theme.color.secondary};
   padding: 2rem;
   height: 100%;
 `
@@ -147,7 +147,7 @@ const Testimonial = styled.div`
   }
 
   p {
-    color: #3b3b3b;
+    color: ${({ theme }) => theme.color.primary};
   }
 `
 

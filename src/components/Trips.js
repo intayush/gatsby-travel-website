@@ -113,7 +113,7 @@ const ProductHeading = styled.div`
   font-size: clamp(1.2rem, 4.5vw, 2rem);
   text-align: center;
   margin-bottom: 0.5rem;
-  color: #183d43;
+  color: ${({ theme }) => theme.color.primary};
 `
 const ProductWrapper = styled.div`
   display: grid;
@@ -186,7 +186,7 @@ const HeadingContainer = styled.div`
 const HeadingUnderline = styled.div`
   width: 20ch;
   height: 4px;
-  background: #183d43;
+  background: ${({ theme }) => theme.color.primary};
 `
 
 export default Trips

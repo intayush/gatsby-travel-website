@@ -13,40 +13,17 @@ html {
     overflow-x: hidden;
 }
 
-.overflow-hidden {
+body{
+  background: ${({ theme }) => theme.background.primary}
+}
+
+
+/*Helper classes*/
+#testimonials{
   overflow: hidden;
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  border-radius: 100vh;
-  background: #edf2f7;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #C6C6C6;
-  border-radius: 100vh;
-  border: 1px solid #edf2f7;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #bdbdbd;
-}
-
-.carousel .thumb img {
-    width: 100% !important;
-    height: 100% !important;
-}
-
-.carousel .slide img {
-    min-width: 100vw;
-    min-height: 100vh;  /* change this to whatever you want */
-}
-
+/*style for intersenction ref element*/
 .intersection {
   width: 100vw;
   height: 5vh;
@@ -56,6 +33,7 @@ html {
   align-items: center;
 }
 
+/*Plane loader style */
 .svg-calLoader {
   width: 160px; height: 160px;
  transform-origin: 115px 115px;
@@ -80,4 +58,27 @@ html {
  100%{
    stroke-dasharray: 0, 580, 0, 0, 0, 0, 0, 0, 0;
  }
-}`
+}
+
+
+/*scrollbar style*/
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 100vh;
+  background: #edf2f7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C6C6C6;
+  border-radius: 100vh;
+  border: 1px solid #edf2f7;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bdbdbd;
+}
+`
