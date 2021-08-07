@@ -300,7 +300,7 @@ const ShapeDivider = styled.div`
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
-    height: 191px;
+    height: 250px;
   }
 
   .shape-fill {
