@@ -289,7 +289,7 @@ const TripWrapper = styled.div`
 
 const ShapeDivider = styled.div`
   position: absolute;
-  bottom: 7px;
+  bottom: 0px;
   left: 0;
   width: 100%;
   overflow: hidden;
