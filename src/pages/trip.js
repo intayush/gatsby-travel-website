@@ -221,7 +221,7 @@ const TripContainer = styled.div`
   justify-content: center;
   font-size: 7rem;
   font-weight: 100;
-  margin-top: -80px;
+  margin-top: -125px;
 `
 
 const BigPicture = styled.div`
@@ -289,7 +289,7 @@ const TripWrapper = styled.div`
 
 const ShapeDivider = styled.div`
   position: absolute;
-  bottom: 0px;
+  bottom: 45px;
   left: 0;
   width: 100%;
   overflow: hidden;
