@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Kashmir",
+    "bigImage": "../assets/images/kashmir-trip.jpg",
+    "whatToExpectContent": "Picturesque and enchanting, Kashmir is cradled high in the lofty green Himalayas and hailed all over the world for its incredible natural beauty. Surrounded by mountain peaks, lush green valleys, glistening lakes, temples and spectacular Mughal-era gardens, it has inspired poets through centuries.",
+    "whatToExpectImage": "../assets/images/destinations/kashmir/whatToExpectImage.jpg",
+    "gallery": [
+      "../assets/images/destinations/kashmir/1.jpg",
+      "../assets/images/destinations/kashmir/2.jpg",
+      "../assets/images/destinations/kashmir/3.jpg",
+      "../assets/images/destinations/kashmir/4.jpg",
+      "../assets/images/destinations/kashmir/5.jpg",
+      "../assets/images/destinations/kashmir/6.jpg"
+    ]
+  }
+]

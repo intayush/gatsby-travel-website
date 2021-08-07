@@ -1,20 +1,114 @@
 import React from "react"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+import Slider from "react-slick"
+import { useStaticQuery, graphql } from "gatsby"
 import { GlobalStyle } from "../components/styles/GlobalStyles"
-import kashmirBg from "../assets/images/kashmir-trip.jpg"
+import kashmirBg from "../assets/images/destinations/kashmir/bigImage.jpg"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const Trip = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allDestinationsJson(filter: { name: { eq: "Kashmir" } }) {
+        edges {
+          node {
+            whatToExpectContent
+            bigImage {
+              childImageSharp {
+                gatsbyImageData(
+                  placeholder: BLURRED
+                  layout: FIXED
+                  quality: 90
+                )
+              }
+            }
+            whatToExpectImage {
+              childImageSharp {
+                gatsbyImageData(
+                  placeholder: BLURRED
+                  quality: 90
+                  layout: CONSTRAINED
+                )
+              }
+            }
+            gallery {
+              childImageSharp {
+                gatsbyImageData(
+                  placeholder: BLURRED
+                  quality: 90
+                  layout: CONSTRAINED
+                  height: 220
+                )
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const settings = {
+    className: "center",
+    centerMode: true,
+    infinite: true,
+    dots: true,
+    //centerPadding: "10px",
+    slidesToShow: 3,
+    speed: 500,
+    nextArrow: <Scroll />,
+    prevArrow: <Scroll />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 960,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 786,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+    ],
+  }
+
+  const filteredData = data.allDestinationsJson.edges[0]
+
+  const whatToExpectImage = getImage(
+    filteredData.node.whatToExpectImage.childImageSharp.gatsbyImageData
+  )
+
+  console.log(filteredData)
+
   return (
     <Layout>
+      <GlobalStyle />
       <Seo title="Destination" />
       <TripContainer>
-        <GlobalStyle />
         <PictureHeading>Kashmir</PictureHeading>
-        <BigPicture>
-        </BigPicture>
+        <BigPicture />
         <ShapeDivider>
           <svg
             data-name="Layer 1"
@@ -29,6 +123,93 @@ const Trip = () => {
           </svg>
         </ShapeDivider>
       </TripContainer>
+      <TripWrapper>
+        <WhatToExpect>
+          <Place>
+            <GatsbyImage image={whatToExpectImage} alt="" />
+          </Place>
+          <Content>
+            <h4
+              style={{
+                fontFamily: "Sacramento",
+                fontSize: 40,
+                lineHeight: "20px",
+              }}
+            >
+              what to
+            </h4>
+            <h1
+              style={{
+                fontFamily: "Enriqueta",
+                fontSize: 40,
+              }}
+            >
+              EXPECT
+            </h1>
+            <p
+              style={{
+                fontFamily: "Enriqueta",
+                fontSize: 30,
+                color: "#aaa",
+              }}
+            >
+              Picturesque and enchanting, Kashmir is cradled high in the lofty
+              green Himalayas and hailed all over the world for its incredible
+              natural beauty. Surrounded by mountain peaks, lush green valleys,
+              glistening lakes, temples and spectacular Mughal-era gardens, it
+              has inspired poets through centuries.
+            </p>
+          </Content>
+        </WhatToExpect>
+      </TripWrapper>
+      <Itinerary>
+        <ItineraryContainer>
+          <ItineraryHeading>Itinerary</ItineraryHeading>
+          <ItineraryWrapper>
+            <ItineraryList>
+              <ItineraryItem>
+                <TimeStamp>
+                  3rd May 2020
+                  <br /> 7:00 PM
+                </TimeStamp>
+                <ItemTitle>
+                  Chris Serrano posted a photo on your wall.
+                </ItemTitle>
+              </ItineraryItem>
+              <ItineraryItem>
+                <TimeStamp>
+                  19th May 2020
+                  <br /> 3:00 PM
+                </TimeStamp>
+                <ItemTitle>Mia Redwood commented on your last post.</ItemTitle>
+              </ItineraryItem>
+
+              <ItineraryItem>
+                <TimeStamp>
+                  17st June 2020
+                  <br /> 7:00 PM
+                </TimeStamp>
+                <ItemTitle>Lucas McAlister just send you a message.</ItemTitle>
+              </ItineraryItem>
+            </ItineraryList>
+          </ItineraryWrapper>
+        </ItineraryContainer>
+      </Itinerary>
+      <Gallery>
+        <GalleryHeading>Glimpses of Kashmir</GalleryHeading>
+        <Slider {...settings}>
+          {filteredData.node.gallery.map(image => {
+            return (
+              <SliderImageContainer>
+                <GatsbyImage
+                  image={getImage(image.childImageSharp.gatsbyImageData)}
+                  alt=""
+                />
+              </SliderImageContainer>
+            )
+          })}
+        </Slider>
+      </Gallery>
     </Layout>
   )
 }
@@ -40,7 +221,6 @@ const TripContainer = styled.div`
   justify-content: center;
   font-size: 7rem;
   font-weight: 100;
-  padding: 0 0.25rem;
   margin-top: -80px;
 `
 
@@ -76,7 +256,7 @@ const PictureHeading = styled.div`
   left: 3vw;
   bottom: 0;
   right: 0;
-  font-size: 8rem;
+  font-size: 12vw;
   font-weight: 100;
   z-index: 0;
   color: white;
@@ -94,13 +274,22 @@ const PictureHeading = styled.div`
       transform: translateX(0px);
     }
   }
+
+  @media screen and (max-width: 786px) {
+    font-size: 20vw;
+  }
 `
 
-const TripWrapper = styled.div``
+const TripWrapper = styled.div`
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
 const ShapeDivider = styled.div`
   position: absolute;
-  bottom: 0;
+  bottom: 7px;
   left: 0;
   width: 100%;
   overflow: hidden;
@@ -116,6 +305,129 @@ const ShapeDivider = styled.div`
 
   .shape-fill {
     fill: #ffffff;
+  }
+`
+
+const WhatToExpect = styled.div`
+  width: 80vw;
+  display: grid;
+
+  @media screen and (min-width: 961px) {
+    grid-template-columns: 1fr 2fr;
+  }
+`
+
+const Place = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
+const Content = styled.div`
+  padding: 70px 20px;
+  @media screen and (min-width: 960px) {
+    padding: 10px 20px;
+  }
+`
+
+const Itinerary = styled.div``
+
+const ItineraryContainer = styled.div`
+  background: #232931;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 10%;
+  box-shadow: 2px 5px 20px rgba(119, 119, 119, 0.5);
+`
+
+const ItineraryWrapper = styled.div`
+  font-family: "PT Sans", sans-serif;
+  margin: auto;
+  display: block;
+  position: relative;
+`
+
+const ItineraryList = styled.ul`
+  padding: 2rem;
+  display: inline-block;
+`
+
+const ItineraryItem = styled.li`
+  list-style: none;
+  margin: auto;
+  margin-left: 5vw;
+  min-height: 50px;
+  border-left: 1px dashed #fff;
+  padding: 0 0 50px 30px;
+  position: relative;
+
+  :last-child {
+    border-left: 0;
+  }
+
+  ::before {
+    position: absolute;
+    left: -18px;
+    top: -5px;
+    content: " ";
+    border: 8px solid rgba(255, 255, 255, 1);
+    border-radius: 500%;
+    background: #50d890;
+    height: 20px;
+    width: 20px;
+    transition: all 500ms ease-in-out;
+  }
+
+  :hover::before {
+    border-color: #232931;
+    transition: all 1000ms ease-in-out;
+  }
+`
+
+const TimeStamp = styled.div`
+  color: #50d890;
+  position: relative;
+  width: 100px;
+  font-size: 16px;
+`
+
+const ItemTitle = styled.div`
+  color: #fff;
+`
+
+const ItineraryHeading = styled.h3`
+  font-family: "Sacramento";
+  font-size: 70px;
+  color: white;
+  padding: 1rem 4rem;
+`
+
+const Gallery = styled.div`
+  margin-top: 40px;
+  padding: 0px 30px;
+`
+
+const GalleryHeading = styled.h3`
+  font-family: "Sacramento";
+  font-size: 70px;
+  padding: 3rem;
+  text-align: center;
+
+  @media screen and (max-width: 786px) {
+    font-size: 50px;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 30px;
+  }
+`
+
+const SliderImageContainer = styled.div`
+  padding: 0px 5px;
+  text-align: center;
+`
+const Scroll = styled.div`
+  :before {
+    color: black;
   }
 `
 

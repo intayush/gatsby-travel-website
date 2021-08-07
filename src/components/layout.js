@@ -1,4 +1,6 @@
 import React, { useState } from "react"
+import "@fontsource/sacramento"
+import "@fontsource/enriqueta"
 import { Helmet } from "react-helmet"
 import { ThemeProvider } from "styled-components"
 import { GlobalStyle } from "../components/styles/GlobalStyles"
