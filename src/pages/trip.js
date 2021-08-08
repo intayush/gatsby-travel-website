@@ -239,7 +239,7 @@ const BigPicture = styled.div`
 
 const PictureHeading = styled.div`
   position: absolute;
-  top: 30vh;
+  top: 25vh;
   left: 3vw;
   bottom: 0;
   right: 0;
@@ -390,14 +390,13 @@ const ItineraryHeading = styled.h3`
 `
 
 const Gallery = styled.div`
-  margin-top: 40px;
-  padding: 0px 30px;
+  padding: 50px 30px;
 `
 
 const GalleryHeading = styled.h3`
   font-family: "Sacramento";
   font-size: 70px;
-  padding: 3rem;
+  padding: 0px 3rem 3rem 3rem;
   text-align: center;
 
   @media screen and (max-width: 786px) {
