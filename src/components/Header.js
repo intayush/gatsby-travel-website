@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"
+import { navigate } from "@reach/router"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { FaBars } from "react-icons/fa"
@@ -6,15 +7,17 @@ import { MenuData } from "../data/MenuData"
 import Icons from "../data/MenuIcons"
 import MobileMenu from "./MobileMenu"
 
-const Header = ({
-  currentTheme
-}) => {
+const Header = ({ currentTheme }) => {
   const ref = useRef(null)
   const [scroll, setScroll] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
 
   const menuCloseHandler = () => {
     setIsOpen(false)
+  }
+
+  const goToHome = () => {
+    navigate(`/`)
   }
 
   const changeNav = () => {
@@ -44,6 +47,10 @@ const Header = ({
         alt=""
         placeholder="tracedSVG"
         objectFit="contain"
+        onClick={goToHome}
+        style={{
+          cursor: "pointer",
+        }}
       />
       <Bars
         $active={scroll}
@@ -68,7 +75,8 @@ const Header = ({
 export default Header
 
 const Nav = styled.nav`
-  background: ${({ active, theme }) => (active ? theme.background.secondary : "transparent")};
+  background: ${({ active, theme }) =>
+    active ? theme.background.secondary : "transparent"};
   height: 80px;
   display: flex;
   padding: 0.5rem;
@@ -78,7 +86,8 @@ const Nav = styled.nav`
   transition: 0.8s all ease;
 
   @media screen and (max-width: 960px) {
-    background: ${({ active, theme }) => (active ? theme.background.secondary : "transparent")};
+    background: ${({ active, theme }) =>
+      active ? theme.background.secondary : "transparent"};
     transition: 0.8s all ease;
   }
 `
@@ -93,7 +102,8 @@ const NavLink = styled.a`
   cursor: pointer;
 
   @media screen and (max-width: 960px) {
-    background: ${({ active, theme }) => (active ? theme.background.secondary : "transparent")};
+    background: ${({ active, theme }) =>
+      active ? theme.background.secondary : "transparent"};
     transition: 0.8s all ease;
   }
 `

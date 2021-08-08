@@ -1,17 +1,18 @@
-import React from "react"
-import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
+import React, { useState } from "react"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import Slider from "react-slick"
 import { useStaticQuery, graphql } from "gatsby"
 import { GlobalStyle } from "../components/styles/GlobalStyles"
-import kashmirBg from "../assets/images/destinations/kashmir/bigImage.jpg"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Modal from "../components/generic/Modal"
 
 const Trip = () => {
+  const [isOpen, setIsOpen] = useState(false)
   const data = useStaticQuery(graphql`
     query {
       allDestinationsJson(filter: { name: { eq: "Kashmir" } }) {
@@ -104,14 +105,18 @@ const Trip = () => {
     filteredData.node.bigImage.childImageSharp.gatsbyImageData
   )
 
-  console.log(filteredData)
-
   return (
     <Layout>
       <GlobalStyle />
       <Seo title="Destination" />
       <TripContainer>
-        <PictureHeading>Kashmir</PictureHeading>
+        <PictureHeading>
+          <PictureTitle>Kashmir</PictureTitle>
+          <BookNowButton onClick={() => setIsOpen(true)}>
+            Book Now
+          </BookNowButton>
+        </PictureHeading>
+
         <BigPicture>
           <ShapeDivider>
             <svg
@@ -216,6 +221,15 @@ const Trip = () => {
           })}
         </Slider>
       </Gallery>
+      <>
+        <Modal
+          isVisible={isOpen}
+          title="Book Now"
+          content={<p>Add your content here</p>}
+          footer={<button>Cancel</button>}
+          onClose={() => setIsOpen(false)}
+        />
+      </>
     </Layout>
   )
 }
@@ -243,12 +257,8 @@ const PictureHeading = styled.div`
   left: 3vw;
   bottom: 0;
   right: 0;
-  font-size: 12vw;
-  font-weight: 100;
   z-index: 0;
-  color: white;
   height: fit-content;
-  font-family: "Enriqueta";
 
   animation: 1s cubic-bezier(0.46, 0.03, 0.52, 0.96) riseUp;
 
@@ -266,6 +276,14 @@ const PictureHeading = styled.div`
   @media screen and (max-width: 786px) {
     font-size: 20vw;
   }
+`
+
+const PictureTitle = styled.div`
+  font-size: 12vw;
+  font-weight: 100;
+  font-family: "Enriqueta";
+  color: white;
+  line-height: 10px;
 `
 
 const TripWrapper = styled.div`
@@ -416,6 +434,19 @@ const Scroll = styled.div`
   :before {
     color: black;
   }
+`
+
+const BookNowButton = styled.button`
+  margin-top: 5px;
+  margin-left: 10px;
+  padding: 1rem 2rem;
+  border-radius: 0px;
+  border: 1px solid white;
+  color: white;
+  background: transparent;
+  text-transform: capitalize;
+  font-weight: 600;
+  cursor: pointer;
 `
 
 export default Trip

@@ -96,12 +96,14 @@ const HeroH1 = styled.h1`
   margin-bottom: 1.5rem;
   letter-spacing: 3px;
   padding: 0rem;
+  font-family: "Enriqueta";
 `
 
 const HeroP = styled.p`
   font-size: clamp(1rem, 3vw, 3rem);
   margin-bottom: 2rem;
   font-weight: 400;
+  font-family: "Enriqueta";
 `
 
 const RiseUp = styled.div`
