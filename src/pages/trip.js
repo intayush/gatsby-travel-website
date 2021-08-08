@@ -1,5 +1,5 @@
 import React from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -22,7 +22,7 @@ const Trip = () => {
               childImageSharp {
                 gatsbyImageData(
                   placeholder: BLURRED
-                  layout: FIXED
+                  layout: CONSTRAINED
                   quality: 90
                 )
               }
@@ -100,6 +100,10 @@ const Trip = () => {
     filteredData.node.whatToExpectImage.childImageSharp.gatsbyImageData
   )
 
+  const bigPicture = getImage(
+    filteredData.node.bigImage.childImageSharp.gatsbyImageData
+  )
+
   console.log(filteredData)
 
   return (
@@ -108,20 +112,22 @@ const Trip = () => {
       <Seo title="Destination" />
       <TripContainer>
         <PictureHeading>Kashmir</PictureHeading>
-        <BigPicture />
-        <ShapeDivider>
-          <svg
-            data-name="Layer 1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-              className="shape-fill"
-            ></path>
-          </svg>
-        </ShapeDivider>
+        <BigPicture>
+          <ShapeDivider>
+            <svg
+              data-name="Layer 1"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1200 120"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                className="shape-fill"
+              ></path>
+            </svg>
+          </ShapeDivider>
+          <GatsbyImage image={bigPicture} alt="" style={{ height: "95vh" }} />
+        </BigPicture>
       </TripContainer>
       <TripWrapper>
         <WhatToExpect>
@@ -226,28 +232,9 @@ const TripContainer = styled.div`
 
 const BigPicture = styled.div`
   position: relative;
-  height: 100vh;
   width: 100%;
   overflow: hidden;
   z-index: -1;
-  background: url(${kashmirBg}) no-repeat center;
-  background-size: cover;
-
-  ::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 98;
-    background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.6) 100%
-      ),
-      linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, transparent 100%);
-  }
 `
 
 const PictureHeading = styled.div`
@@ -261,6 +248,7 @@ const PictureHeading = styled.div`
   z-index: 0;
   color: white;
   height: fit-content;
+  font-family: "Enriqueta";
 
   animation: 1s cubic-bezier(0.46, 0.03, 0.52, 0.96) riseUp;
 
@@ -289,7 +277,7 @@ const TripWrapper = styled.div`
 
 const ShapeDivider = styled.div`
   position: absolute;
-  bottom: 0px;
+  bottom: -10px;
   left: 0;
   width: 100%;
   overflow: hidden;
