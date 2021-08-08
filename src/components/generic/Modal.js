@@ -1,5 +1,6 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
+import { GrClose } from "react-icons/gr";
 
 const Modal = ({ isVisible = false, title, content, footer, onClose }) => {
   const keydownHandler = ({ key }) => {
@@ -20,7 +21,7 @@ const Modal = ({ isVisible = false, title, content, footer, onClose }) => {
       <ModalDialog onClick={e => e.stopPropagation()}>
         <ModalHeader>
           <ModalTitle>{title}</ModalTitle>
-          <ModalClose onClick={onClose}>&times;</ModalClose>
+          <ModalClose onClick={onClose}><GrClose /></ModalClose>
         </ModalHeader>
         <ModalBody>
           <ModalContent>{content}</ModalContent>
@@ -103,7 +104,7 @@ const ModalFooter = styled.div`
 `
 
 const ModalTitle = styled.h3`
-  font-family: "Enriqueta";
+font-weight: 400;
 `
 
 const ModalClose = styled.span`

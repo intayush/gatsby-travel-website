@@ -9,7 +9,9 @@ import { GlobalStyle } from "../components/styles/GlobalStyles"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import BookNow from "../components/BookNow"
 import Modal from "../components/generic/Modal"
+import Button from "../components/generic/Button"
 
 const Trip = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -225,8 +227,20 @@ const Trip = () => {
         <Modal
           isVisible={isOpen}
           title="Book Now"
-          content={<p>Add your content here</p>}
-          footer={<button>Cancel</button>}
+          content={<BookNow />}
+          footer={
+            <Button
+              to="/trip"
+              primary="true"
+              round="true"
+              css={`
+                transform: none;
+                padding: 0.5rem 1rem;
+              `}
+            >
+              Submit
+            </Button>
+          }
           onClose={() => setIsOpen(false)}
         />
       </>
