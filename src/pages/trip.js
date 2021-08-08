@@ -221,7 +221,7 @@ const TripContainer = styled.div`
   justify-content: center;
   font-size: 7rem;
   font-weight: 100;
-  margin-top: -125px;
+  margin-top: -80px;
 `
 
 const BigPicture = styled.div`
@@ -289,7 +289,7 @@ const TripWrapper = styled.div`
 
 const ShapeDivider = styled.div`
   position: absolute;
-  bottom: 45px;
+  bottom: 0px;
   left: 0;
   width: 100%;
   overflow: hidden;
@@ -300,7 +300,7 @@ const ShapeDivider = styled.div`
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
-    height: 250px;
+    height: 191px;
   }
 
   .shape-fill {
