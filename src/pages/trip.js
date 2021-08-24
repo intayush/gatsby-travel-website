@@ -207,8 +207,8 @@ const Trip = ({ data }) => {
 }
 
 export const query = graphql`
-  query($slug: String!) {
-    allDestinationsJson(filter: { route: { eq: $slug  } }) {
+  query($slug: String) {
+    allDestinationsJson(filter: { slug: { eq: $slug  } }) {
       edges {
         node {
           name
