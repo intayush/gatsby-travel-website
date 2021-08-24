@@ -14,6 +14,7 @@ const Trips = () => {
         edges {
           node {
             name
+            route
             alt
             img {
               childrenImageSharp {
@@ -71,7 +72,7 @@ const Trips = () => {
               <ProductTitle>{item.node.name}</ProductTitle>
             </TextWrap>
             <Button
-              to="/trip"
+              to={`/${item.node.route}`}
               primary="true"
               round="true"
               css={`

@@ -1,7 +1,8 @@
 [
   {
+    "route": "kashmir",
     "name": "Kashmir",
-    "bigImage": "../assets/images/kashmir-trip.jpg",
+    "bigImage": "../assets/images/destinations/kashmir/bigImage.jpg",
     "whatToExpectContent": "Picturesque and enchanting, Kashmir is cradled high in the lofty green Himalayas and hailed all over the world for its incredible natural beauty. Surrounded by mountain peaks, lush green valleys, glistening lakes, temples and spectacular Mughal-era gardens, it has inspired poets through centuries.",
     "whatToExpectImage": "../assets/images/destinations/kashmir/whatToExpectImage.jpg",
     "gallery": [
@@ -11,6 +12,51 @@
       "../assets/images/destinations/kashmir/4.jpg",
       "../assets/images/destinations/kashmir/5.jpg",
       "../assets/images/destinations/kashmir/6.jpg"
+    ]
+  },
+  {
+    "route": "maldives",
+    "name": "Maldives",
+    "bigImage": "../assets/images/destinations/maldives/bigImage.jpg",
+    "whatToExpectContent": "Maldives, in full Republic of Maldives, also called Maldive Islands, independent island country in the north-central Indian Ocean. It consists of a chain of about 1,200 small coral islands and sandbanks (some 200 of which are inhabited), grouped in clusters, or atolls.",
+    "whatToExpectImage": "../assets/images/destinations/maldives/whatToExpectImage.jpg",
+    "gallery": [
+      "../assets/images/destinations/maldives/1.jpg",
+      "../assets/images/destinations/maldives/2.jpg",
+      "../assets/images/destinations/maldives/3.jpg",
+      "../assets/images/destinations/maldives/4.jpg",
+      "../assets/images/destinations/maldives/5.jpg",
+      "../assets/images/destinations/maldives/6.jpg"
+    ]
+  },
+  {
+    "route": "kerela",
+    "name": "Kerela",
+    "bigImage": "../assets/images/destinations/kerela/bigImage.jpg",
+    "whatToExpectContent": "Kerala, a state in Southern India is known as a tropical paradise of waving palms and wide sandy beaches. It is a narrow strip of coastal territory that slopes down the Western Ghats in a cascade of lush green vegetation, and reaches to the Arabian sea.",
+    "whatToExpectImage": "../assets/images/destinations/kerela/whatToExpectImage.jpg",
+    "gallery": [
+      "../assets/images/destinations/kerela/1.jpg",
+      "../assets/images/destinations/kerela/2.jpg",
+      "../assets/images/destinations/kerela/3.jpg",
+      "../assets/images/destinations/kerela/4.jpg",
+      "../assets/images/destinations/kerela/5.jpg",
+      "../assets/images/destinations/kerela/6.jpg"
+    ]
+  },
+  {
+    "route": "himachal",
+    "name": "Himachal",
+    "bigImage": "../assets/images/destinations/himachal/bigImage.jpg",
+    "whatToExpectContent": "Covering an area of 55,673 square kilometres (21,495 sq mi), it is a mountainous state. Most of the state lies on the foothills of the Dhauladhar Range. At 6,816 m, Reo Purgyil is the highest mountain peak in the state of Himachal Pradesh. The drainage system of Himachal is composed both of rivers and glaciers.",
+    "whatToExpectImage": "../assets/images/destinations/himachal/whatToExpectImage.jpg",
+    "gallery": [
+      "../assets/images/destinations/himachal/1.jpg",
+      "../assets/images/destinations/himachal/2.jpg",
+      "../assets/images/destinations/himachal/3.jpg",
+      "../assets/images/destinations/himachal/4.jpg",
+      "../assets/images/destinations/himachal/5.jpg",
+      "../assets/images/destinations/himachal/6.jpg"
     ]
   }
 ]

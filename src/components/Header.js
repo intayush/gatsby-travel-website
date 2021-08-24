@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"
-import { navigate } from "@reach/router"
+import { navigate } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { FaBars } from "react-icons/fa"

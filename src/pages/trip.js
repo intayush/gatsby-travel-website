@@ -4,7 +4,7 @@ import styled from "styled-components"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import Slider from "react-slick"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import { GlobalStyle } from "../components/styles/GlobalStyles"
 
 import Layout from "../components/layout"
@@ -13,54 +13,14 @@ import BookNow from "../components/BookNow"
 import Modal from "../components/generic/Modal"
 import Button from "../components/generic/Button"
 
-const Trip = () => {
+const Trip = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const data = useStaticQuery(graphql`
-    query {
-      allDestinationsJson(filter: { name: { eq: "Kashmir" } }) {
-        edges {
-          node {
-            whatToExpectContent
-            bigImage {
-              childImageSharp {
-                gatsbyImageData(
-                  placeholder: BLURRED
-                  layout: CONSTRAINED
-                  quality: 90
-                )
-              }
-            }
-            whatToExpectImage {
-              childImageSharp {
-                gatsbyImageData(
-                  placeholder: BLURRED
-                  quality: 90
-                  layout: CONSTRAINED
-                )
-              }
-            }
-            gallery {
-              childImageSharp {
-                gatsbyImageData(
-                  placeholder: BLURRED
-                  quality: 90
-                  layout: CONSTRAINED
-                  height: 220
-                )
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
 
   const settings = {
     className: "center",
     centerMode: true,
     infinite: true,
     dots: true,
-    //centerPadding: "10px",
     slidesToShow: 3,
     speed: 500,
     nextArrow: <Scroll />,
@@ -79,7 +39,7 @@ const Trip = () => {
         breakpoint: 960,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
           initialSlide: 2,
           infinite: true,
           dots: true,
@@ -97,14 +57,16 @@ const Trip = () => {
     ],
   }
 
-  const filteredData = data.allDestinationsJson.edges[0]
+  const {
+    node
+  } = data.allDestinationsJson.edges[0]
 
   const whatToExpectImage = getImage(
-    filteredData.node.whatToExpectImage.childImageSharp.gatsbyImageData
+    node.whatToExpectImage.childImageSharp.gatsbyImageData
   )
 
   const bigPicture = getImage(
-    filteredData.node.bigImage.childImageSharp.gatsbyImageData
+    node.bigImage.childImageSharp.gatsbyImageData
   )
 
   return (
@@ -113,7 +75,7 @@ const Trip = () => {
       <Seo title="Destination" />
       <TripContainer>
         <PictureHeading>
-          <PictureTitle>Kashmir</PictureTitle>
+          <PictureTitle>{node.name}</PictureTitle>
           <BookNowButton onClick={() => setIsOpen(true)}>
             Book Now
           </BookNowButton>
@@ -166,11 +128,7 @@ const Trip = () => {
                 color: "#aaa",
               }}
             >
-              Picturesque and enchanting, Kashmir is cradled high in the lofty
-              green Himalayas and hailed all over the world for its incredible
-              natural beauty. Surrounded by mountain peaks, lush green valleys,
-              glistening lakes, temples and spectacular Mughal-era gardens, it
-              has inspired poets through centuries.
+              {node.whatToExpectContent}
             </p>
           </Content>
         </WhatToExpect>
@@ -209,11 +167,11 @@ const Trip = () => {
         </ItineraryContainer>
       </Itinerary>
       <Gallery>
-        <GalleryHeading>Glimpses of Kashmir</GalleryHeading>
+        <GalleryHeading>{`Glimpses of ${node.name}`}</GalleryHeading>
         <Slider {...settings}>
-          {filteredData.node.gallery.map(image => {
+          {node.gallery.map((image, index) => {
             return (
-              <SliderImageContainer>
+              <SliderImageContainer key={`_gallery_${index}`}>
                 <GatsbyImage
                   image={getImage(image.childImageSharp.gatsbyImageData)}
                   alt=""
@@ -247,6 +205,48 @@ const Trip = () => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  query($slug: String!) {
+    allDestinationsJson(filter: { route: { eq: $slug  } }) {
+      edges {
+        node {
+          name
+          whatToExpectContent
+          whatToExpectContent
+          bigImage {
+            childImageSharp {
+              gatsbyImageData(
+                placeholder: BLURRED
+                layout: CONSTRAINED
+                quality: 90
+              )
+            }
+          }
+          whatToExpectImage {
+            childImageSharp {
+              gatsbyImageData(
+                placeholder: BLURRED
+                quality: 90
+                layout: CONSTRAINED
+              )
+            }
+          }
+          gallery {
+            childImageSharp {
+              gatsbyImageData(
+                placeholder: BLURRED
+                quality: 90
+                layout: CONSTRAINED
+                height: 220
+              )
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 const TripContainer = styled.div`
   height: 100%;

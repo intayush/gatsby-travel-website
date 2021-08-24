@@ -2,21 +2,25 @@
   {
     "img": "../assets/images/travel-1.jpg",
     "alt": "Addu Atol",
-    "name": "Maldives"
+    "name": "Maldives",
+    "route": "maldives"
   },
   {
     "img": "../assets/images/travel-2.jpg",
     "alt": "Gulmarg",
-    "name": "Kashmir"
+    "name": "Kashmir",
+    "route": "kashmir"
   },
   {
     "img": "../assets/images/travel-3.jpg",
     "alt": "Kochi",
-    "name": "Kerela"
+    "name": "Kerela",
+    "route": "kerela"
   },
   {
     "img": "../assets/images/travel-4.jpg",
     "alt": "Parvati Valley",
-    "name": "Himachal"
+    "name": "Himachal",
+    "route": "himachal"
   }
 ]
