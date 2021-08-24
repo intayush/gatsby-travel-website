@@ -213,7 +213,6 @@ export const query = graphql`
         node {
           name
           whatToExpectContent
-          whatToExpectContent
           bigImage {
             childImageSharp {
               gatsbyImageData(
