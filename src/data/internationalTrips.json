@@ -18,6 +18,11 @@
       "img": "../assets/images/london.jpg",
       "alt": "London",
       "name": "London"
+    },
+    {
+      "img": "../assets/images/switzerland.jpg",
+      "alt": "Switzerland",
+      "name": "Switzerland"
     }
   ]
   

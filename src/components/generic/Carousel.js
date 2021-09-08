@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react"
+import Slider from "react-slick"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { useStaticQuery, graphql } from "gatsby"
@@ -7,6 +10,48 @@ import { ImLocation } from "react-icons/im"
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs"
 
 const Carousel = () => {
+  const settings = {
+    className: "center",
+    adaptiveHeight: true,
+    centerMode: true,
+    infinite: true,
+    dots: true,
+    slidesToShow: 4,
+    speed: 500,
+    nextArrow: <Scroll />,
+    prevArrow: <Scroll />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 960,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 2,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 786,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+    ],
+  }
+
   const data = useStaticQuery(graphql`
     query InternationalTripsQuery {
       allInternationalTripsJson {
@@ -18,7 +63,7 @@ const Carousel = () => {
               childrenImageSharp {
                 gatsbyImageData(
                   placeholder: BLURRED
-                  layout: FULL_WIDTH
+                  layout: CONSTRAINED
                   quality: 85
                 )
               }
@@ -28,7 +73,7 @@ const Carousel = () => {
       }
     }
   `)
-  const [activeItem, setActiveItem] = useState(0)
+  const [activeItem, setActiveItem] = useState(1)
   const [width, setWidth] = useState(25)
   useEffect(() => {
     const resizeListener = () => {
@@ -67,6 +112,10 @@ const Carousel = () => {
       data.allInternationalTripsJson.edges.length > nowActive + visibleItems &&
       nowActive >= 0
     ) {
+      // const edgeArray = Array(data.allInternationalTripsJson.edges);
+      // const last = edgeArray.pop();
+      // edgeArray.unshift(last);
+      // data.allInternationalTripsJson.edges = edgeArray;
       setActiveItem(nowActive)
     }
   }
@@ -98,7 +147,7 @@ const Carousel = () => {
         data-aos-easing="ease"
       >
         <Window>
-          {activeItem + noOfItems - 1 !==
+          {/* {activeItem + noOfItems - 1 !==
             data.allInternationalTripsJson.edges.length - 1 &&
             noOfItems < data.allInternationalTripsJson.edges.length && (
               <ScrollRight onClick={() => scrollHandler(activeItem + 1)}>
@@ -110,50 +159,53 @@ const Carousel = () => {
               <ScrollLeftIcon />
             </ScrollLeft>
           )}
-          <Reel style={{ transform: `translateX(-${activeItem * width}%)` }}>
-            {data.allInternationalTripsJson.edges.map((item, index) => {
-              const image = getImage(
-                item.node.img.childrenImageSharp[0].gatsbyImageData
-              )
-              return (
-                <Item
-                  key={`carousel_item_${index}`}
-                  css={`
-                    padding-right: ${(activeItem === index && noOfItems > 1) ||
-                    (noOfItems >= 3 &&
-                      activeItem < index &&
-                      index < noOfItems - 1)
-                      ? "5px"
-                      : "0px"};
-                    padding-left: ${noOfItems > 1 && index > activeItem
-                      ? "5px"
-                      : "0px"};
-                  `}
-                >
-                  <ProductImg image={image} alt={item.node.alt} />
-                  <ProductInfo>
-                    <TextWrap>
-                      <ImLocation />
-                      <ProductTitle>{item.node.name}</ProductTitle>
-                    </TextWrap>
-                    <Button
-                      to="/trips"
-                      primary="true"
-                      round="true"
-                      css={`
-                        position: absolute;
-                        bottom: 2rem;
-                        transform: none;
-                        padding: 0.5rem 1rem;
-                      `}
-                    >
-                      Visit Destination
-                    </Button>
-                  </ProductInfo>
-                </Item>
-              )
-            })}
-          </Reel>
+          <Reel style={{ transform: `translateX(-${activeItem * width}%)` }}> */}
+          
+        <Slider {...settings}>
+          {data.allInternationalTripsJson.edges.map((item, index) => {
+            const image = getImage(
+              item.node.img.childrenImageSharp[0].gatsbyImageData
+            )
+            return (
+              <Item
+                key={`carousel_item_${index}`}
+                // css={`
+                //   padding-right: ${(activeItem === index && noOfItems > 1) ||
+                //   (noOfItems >= 3 &&
+                //     activeItem < index &&
+                //     index < noOfItems - 1)
+                //     ? "5px"
+                //     : "0px"};
+                //   padding-left: ${noOfItems > 1 && index > activeItem
+                //     ? "5px"
+                //     : "0px"};
+                // `}
+              >
+                <ProductImg image={image} alt={item.node.alt} />
+                <ProductInfo>
+                  <TextWrap>
+                    <ImLocation />
+                    <ProductTitle>{item.node.name}</ProductTitle>
+                  </TextWrap>
+                  <Button
+                    to="/trips"
+                    primary="true"
+                    round="true"
+                    css={`
+                      position: absolute;
+                      bottom: 2rem;
+                      transform: none;
+                      padding: 0.5rem 1rem;
+                    `}
+                  >
+                    Visit Destination
+                  </Button>
+                </ProductInfo>
+              </Item>
+            )
+          })}
+        </Slider>
+        {/* </Reel> */}
         </Window>
       </WindowWrapper>
     </>
@@ -161,14 +213,15 @@ const Carousel = () => {
 }
 
 const WindowWrapper = styled.div`
-  padding: 2vh 3vw;
-  height: 80vh;
+  //padding: 2.5rem calc((100vw - 1300px) / 2);
+  //height: 80vh;
 `
 const Window = styled.div`
   position: relative;
   overflow: hidden;
   width: 100%;
   height: 100%;
+  padding: 0 1.5rem;
 `
 const ScrollRight = styled.div`
   position: absolute;
@@ -230,7 +283,8 @@ const Item = styled.div`
   display: inline-flex;
   width: 25%;
   height: 100%;
-  //padding: 0px 10px;
+  padding: 0px 10px;
+  //margin: 0 1rem;
   @media screen and (max-width: 1200px) {
     width: 33.33%;
   }
@@ -251,6 +305,7 @@ const ProductImg = styled(GatsbyImage)`
   transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
   cursor: pointer;
   width: 100%;
+  height: 100%;
 
   &:hover {
     filter: brightness(100%);
@@ -291,7 +346,8 @@ const HeadingUnderline = styled.div`
 `
 
 const ProductInfo = styled.div`
-  left: 2.4vw;
+  //left: 2.4vw;
+  top: 0;
   position: absolute;
   height: 100%;
   display: flex;
@@ -316,5 +372,11 @@ const ProductTitle = styled.div`
   font-size: 1rem;
   margin-left: 0.5rem;
   color: #ffffff;
+`
+
+const Scroll = styled.div`
+  :before {
+    color: black;
+  }
 `
 export default Carousel

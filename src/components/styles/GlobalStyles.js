@@ -60,6 +60,13 @@ body{
  }
 }
 
+/* .slick-slider, .slick-list, .slick-track, .slick-slide {
+  height: 100%;
+} */
+
+.slick-slide > div {
+  height: 100%;
+} 
 
 /*scrollbar style*/
 ::-webkit-scrollbar {
