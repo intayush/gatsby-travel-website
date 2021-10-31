@@ -15,12 +15,12 @@ const Loading = styled.div`
   height: 100vh;
 `
 const LoadableNationalTrips = Loadable({
-  loader: () => import("../components/Trips"),
+  loader: () => import("../components/sections/TrendingDestiations"),
   loading: Loading,
 })
 
 const LoadableInterNationalTrips = Loadable({
-  loader: () => import("../components/generic/Carousel"),
+  loader: () => import("../components/sections/InternationalTrips"),
   loading: Loading,
 })
 

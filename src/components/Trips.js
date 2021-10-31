@@ -1,95 +1,95 @@
-import React, { useEffect } from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import React from "react"
+// import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import AOS from "aos"
+// import AOS from "aos"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import Button from "./generic/LinkButton"
-import { ImLocation } from "react-icons/im"
+// import Button from "./generic/LinkButton"
+// import { ImLocation } from "react-icons/im"
 import { Helmet } from "react-helmet"
 
 const Trips = () => {
-  const data = useStaticQuery(graphql`
-    query TripsQuery {
-      allTripsJson {
-        edges {
-          node {
-            name
-            route
-            alt
-            img {
-              childrenImageSharp {
-                gatsbyImageData(
-                  placeholder: BLURRED
-                  layout: FULL_WIDTH
-                  quality: 85
-                )
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
+  // const data = useStaticQuery(graphql`
+  //   query TripsQuery {
+  //     allTripsJson {
+  //       edges {
+  //         node {
+  //           name
+  //           route
+  //           alt
+  //           img {
+  //             childrenImageSharp {
+  //               gatsbyImageData(
+  //                 placeholder: BLURRED
+  //                 layout: FULL_WIDTH
+  //                 quality: 85
+  //               )
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
 
-  useEffect(() => {
-    AOS.init()
-    AOS.refresh()
-    const aosAnimation = document.querySelectorAll(".aos")
-    var observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.intersectionRatio > 0) {
-          entry.target.classList.add("aos-animate")
-        } else {
-          entry.target.classList.remove("aos-animate")
-        }
-      })
-    })
-    aosAnimation.forEach(aosObject => {
-      observer.observe(aosObject)
-    })
-  }, [])
+  // useEffect(() => {
+  //   AOS.init()
+  //   AOS.refresh()
+  //   const aosAnimation = document.querySelectorAll(".aos")
+  //   var observer = new IntersectionObserver(entries => {
+  //     entries.forEach(entry => {
+  //       if (entry.intersectionRatio > 0) {
+  //         entry.target.classList.add("aos-animate")
+  //       } else {
+  //         entry.target.classList.remove("aos-animate")
+  //       }
+  //     })
+  //   })
+  //   aosAnimation.forEach(aosObject => {
+  //     observer.observe(aosObject)
+  //   })
+  // }, [])
 
-  function getTrips(data) {
-    const tripsArray = []
-    data.forEach((item, index) => {
-      const image = getImage(
-        item.node.img.childrenImageSharp[0].gatsbyImageData
-      )
-      tripsArray.push(
-        <ProductCard
-          className="aos"
-          key={`trip_image_${index}`}
-          data-aos="fade-up"
-          data-aos-offset="200"
-          data-aos-delay="10"
-          data-aos-duration="1200"
-          data-aos-easing="ease"
-        >
-          <ProductImg image={image} alt={item.node.alt} />
-          <ProductInfo>
-            <TextWrap>
-              <ImLocation />
-              <ProductTitle>{item.node.name}</ProductTitle>
-            </TextWrap>
-            <Button
-              to={`/${item.node.route}`}
-              primary="true"
-              round="true"
-              css={`
-                position: absolute;
-                bottom: 2rem;
-                transform: none;
-                padding: 0.5rem 1rem;
-              `}
-            >
-              Visit Destination
-            </Button>
-          </ProductInfo>
-        </ProductCard>
-      )
-    })
-    return tripsArray
-  }
+  // function getTrips(data) {
+  //   const tripsArray = []
+  //   data.forEach((item, index) => {
+  //     const image = getImage(
+  //       item.node.img.childrenImageSharp[0].gatsbyImageData
+  //     )
+  //     tripsArray.push(
+  //       <ProductCard
+  //         className="aos"
+  //         key={`trip_image_${index}`}
+  //         data-aos="fade-up"
+  //         data-aos-offset="200"
+  //         data-aos-delay="10"
+  //         data-aos-duration="1200"
+  //         data-aos-easing="ease"
+  //       >
+  //         <ProductImg image={image} alt={item.node.alt} />
+  //         <ProductInfo>
+  //           <TextWrap>
+  //             <ImLocation />
+  //             <ProductTitle>{item.node.name}</ProductTitle>
+  //           </TextWrap>
+  //           <Button
+  //             to={`/${item.node.route}`}
+  //             primary="true"
+  //             round="true"
+  //             css={`
+  //               position: absolute;
+  //               bottom: 2rem;
+  //               transform: none;
+  //               padding: 0.5rem 1rem;
+  //             `}
+  //           >
+  //             Visit Destination
+  //           </Button>
+  //         </ProductInfo>
+  //       </ProductCard>
+  //     )
+  //   })
+  //   return tripsArray
+  // }
   return (
     <ProductContainer>
       <Helmet>
@@ -99,7 +99,7 @@ const Trips = () => {
         <ProductHeading>Trending National Holiday Destinations</ProductHeading>
         <HeadingUnderline />
       </HeadingContainer>
-      <ProductWrapper>{getTrips(data.allTripsJson.edges)}</ProductWrapper>
+      {/* <ProductWrapper>{getTrips(data.allTripsJson.edges)}</ProductWrapper> */}
     </ProductContainer>
   )
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"
-import { navigate } from "gatsby"
+import { navigate, Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { FaBars } from "react-icons/fa"
@@ -50,6 +50,8 @@ const Header = ({ currentTheme }) => {
         onClick={goToHome}
         style={{
           cursor: "pointer",
+          position: "absolute",
+          height: "80%"
         }}
       />
       <Bars
@@ -61,7 +63,7 @@ const Header = ({ currentTheme }) => {
       <NavMenu>
         {MenuData.map((item, key) => {
           return (
-            <NavLink key={`navitem_${key}`} href="/" active={scroll}>
+            <NavLink key={`navitem_${key}`} to={item.link} active={scroll}>
               {Icons[key]}
               {item.title}
             </NavLink>
@@ -92,7 +94,7 @@ const Nav = styled.nav`
   }
 `
 
-const NavLink = styled.a`
+const NavLink = styled(Link)`
   color: ${({ active, theme }) => (active ? theme.color.primary : "#ffffff")};
   display: flex;
   align-items: center;
