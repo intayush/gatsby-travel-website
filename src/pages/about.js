@@ -43,12 +43,8 @@ const AboutUs = () => {
 
               @media screen and (max-width: 786px) {
                 width: 100%;
-                min-width: 350px;
-              }
-
-              @media screen and (max-width: 400px) {
-                width: 100%;
                 min-width: 250px;
+                height: 50px;
               }
             `}
           >
@@ -88,7 +84,6 @@ const TextContainer = styled.p`
   line-height: 1.5;
   color: white;
   font-weight: 100;
-  width: 70%;
   text-align: center;
   margin-bottom: 24px;
 
@@ -97,7 +92,7 @@ const TextContainer = styled.p`
   }
 
   @media screen and (max-width: 670px) {
-    font-size: 18px;
+    font-size: 16px;
   }
 `
 
