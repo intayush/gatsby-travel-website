@@ -64,7 +64,7 @@ const Container = styled.div`
 `
 
 const Heading = styled.h1`
-  font-size: 90px;
+  font-size: clamp(1rem, 10vw, 90px);
   font-family: "Enriqueta";
   font-weight: 100;
   text-align: center;
@@ -80,20 +80,12 @@ const Content = styled.div`
 `
 
 const TextContainer = styled.p`
-  font-size: 36px;
+  font-size: clamp(10px, 2vw, 40px);
   line-height: 1.5;
   color: white;
   font-weight: 100;
   text-align: center;
   margin-bottom: 24px;
-
-  @media screen and (max-width: 1250px) {
-    font-size: 24px;
-  }
-
-  @media screen and (max-width: 670px) {
-    font-size: 16px;
-  }
 `
 
 export default AboutUs
