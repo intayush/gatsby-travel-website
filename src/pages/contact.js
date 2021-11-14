@@ -64,24 +64,21 @@ const Card = styled.div`
   width: 75%;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.05), 0 0px 40px rgba(0, 0, 0, 0.08);
-  display: flex;
+  display: grid;
   min-height: 100px;
 `
 
 const LinksSection = styled.div`
   height: 100%;
   background-color: #183d43;
-  border-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   padding: 16px;
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: 40%;
   color: white;
   opacity: 0.9;
 `
 
 const ContactSection = styled.div`
-  flex: 1;
   padding-top: 24px;
   padding-bottom: 24px;
   padding-left: 36px;
@@ -100,7 +97,9 @@ const ContactForm = styled.div`
 
 const FormControl = styled.div``
 
-const InputLabel = styled.label``
+const InputLabel = styled.label`
+  color: ${({ theme }) => theme.color.primary};
+`
 
 const CardInput = styled.input`
   padding: 7px 0;
@@ -109,13 +108,19 @@ const CardInput = styled.input`
   font-size: 14px;
   border-top: 0;
   border-right: 0;
-  border-bottom: 1px solid #183d43;
   border-left: 0;
   transition: border-bottom-color 0.25s ease-in;
+  color: ${({ theme }) => theme.color.primary};
+  background: ${({ theme }) => theme.background.primary};
 
   &:focus {
-    border-bottom-color: #183d43;
+    border-bottom: ${({ theme }) => `2px solid ${theme.color.primary}`};
     outline: 0;
+  }
+
+  ::placeholder {
+    color: ${({ theme }) => theme.color.primary};
+    opacity: 0.5;
   }
 `
 
