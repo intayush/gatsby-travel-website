@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { navigate } from "gatsby"
 import styled from "styled-components"
 import { MdClose } from "react-icons/md"
 import { MenuData } from "../data/MenuData"
@@ -16,7 +16,14 @@ const MobileMenu = ({ isOpen, closeMenu }) => {
       <Menu>
         {MenuData.map((item, key) => {
           return (
-            <MenuItem key={`navitem_${key}`} to={item.link}>
+            <MenuItem
+              key={`navitem_${key}`}
+              onClick={() => {
+                console.log('asda');
+                navigate(`${item.link}`)
+                closeMenu()
+              }}
+            >
               {Icons[key]}
               {item.title}
             </MenuItem>
@@ -59,7 +66,7 @@ const Menu = styled.div`
   height: 50vh;
 `
 
-const MenuItem = styled(Link)`
+const MenuItem = styled.a`
   color: white;
   font-weight: 500;
   letter-spacing: 0vh;
