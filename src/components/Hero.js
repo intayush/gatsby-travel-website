@@ -36,7 +36,8 @@ const HeroContainer = styled.div`
   position: relative;
   padding: 0 1rem;
   margin-top: -80px;
-  z-index: 97; 
+  z-index: 97;
+  margin-bottom: 5vh;
 
   :before {
     content: "";
