@@ -64,7 +64,7 @@ const Container = styled.div`
 `
 
 const Heading = styled.h1`
-  font-size: clamp(1rem, 10vw, 90px);
+  font-size: clamp(1.5rem, 10vw, 90px);
   font-family: "Enriqueta";
   font-weight: 100;
   text-align: center;
@@ -80,7 +80,7 @@ const Content = styled.div`
 `
 
 const TextContainer = styled.p`
-  font-size: clamp(10px, 2vw, 40px);
+  font-size: clamp(1rem, 2vw, 40px);
   line-height: 1.5;
   color: white;
   font-weight: 100;
