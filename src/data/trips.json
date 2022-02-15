@@ -1,26 +1,26 @@
 [
   {
     "img": "../assets/images/travel-1.jpg",
-    "alt": "Addu Atol",
-    "name": "Maldives",
-    "route": "maldives"
+    "alt": "Kodaikanal",
+    "name": "Kodaikanal",
+    "route": "kodaikanal"
   },
   {
     "img": "../assets/images/travel-2.jpg",
-    "alt": "Gulmarg",
-    "name": "Kashmir",
-    "route": "kashmir"
+    "alt": "Bangalore",
+    "name": "Bangalore",
+    "route": "bangalore"
   },
   {
     "img": "../assets/images/travel-3.jpg",
-    "alt": "Kochi",
+    "alt": "Kerela",
     "name": "Kerela",
     "route": "kerela"
   },
   {
     "img": "../assets/images/travel-4.jpg",
-    "alt": "Parvati Valley",
-    "name": "Himachal",
-    "route": "himachal"
+    "alt": "",
+    "name": "Manali",
+    "route": "manali"
   }
 ]

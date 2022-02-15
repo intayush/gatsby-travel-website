@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import useCollapse from "react-collapsed"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import "slick-carousel/slick/slick.css"
@@ -13,7 +14,41 @@ import BookNow from "../components/BookNow"
 import Modal from "../components/generic/Modal"
 import Button from "../components/generic/Button"
 
+const CollapsibleItinerary = ({
+  index,
+  itinerary,
+  heading,
+  duration,
+  defaultExpanded = false,
+  collapsedHeight = 0,
+}) => {
+  const config = {
+    defaultExpanded,
+    collapsedHeight,
+  }
+  const { getCollapseProps, getToggleProps, isExpanded } = useCollapse(config)
+
+  return (
+    <ItineraryContainer>
+      <ItineraryHeading {...getToggleProps()}>
+        {heading} {duration}
+      </ItineraryHeading>
+      <ItineraryWrapper {...getCollapseProps()}>
+        <ItineraryList>
+          {itinerary.map((it, idx) => (
+            <ItineraryItem key={`iti-${index}-${idx}`}>
+              <TimeStamp>{it.heading}</TimeStamp>
+              <ItemTitle>{it.description}</ItemTitle>
+            </ItineraryItem>
+          ))}
+        </ItineraryList>
+      </ItineraryWrapper>
+    </ItineraryContainer>
+  )
+}
+
 const Trip = ({ data }) => {
+  console.log(data)
   const [isOpen, setIsOpen] = useState(false)
 
   const settings = {
@@ -57,17 +92,17 @@ const Trip = ({ data }) => {
     ],
   }
 
-  const {
-    node
-  } = data.allDestinationsJson.edges[0]
+  const { node } = data.allDestinationsJson.edges[0]
+
+  console.log(node)
 
   const whatToExpectImage = getImage(
     node.whatToExpectImage.childImageSharp.gatsbyImageData
   )
 
-  const bigPicture = getImage(
-    node.bigImage.childImageSharp.gatsbyImageData
-  )
+  const bigPicture = getImage(node.bigImage.childImageSharp.gatsbyImageData)
+
+  const itinerary = node.itinerary
 
   return (
     <Layout>
@@ -75,7 +110,9 @@ const Trip = ({ data }) => {
       <Seo title="Destination" />
       <TripContainer>
         <PictureHeading>
-          <PictureTitle>{node.name}</PictureTitle>
+          <PictureTitle titleLength={node.name.length}>
+            {node.name}
+          </PictureTitle>
           <BookNowButton onClick={() => setIsOpen(true)}>
             Book Now
           </BookNowButton>
@@ -104,23 +141,8 @@ const Trip = ({ data }) => {
             <GatsbyImage image={whatToExpectImage} alt="" />
           </Place>
           <Content>
-            <h4
-              style={{
-                fontFamily: "Sacramento",
-                fontSize: 40,
-                lineHeight: "20px",
-              }}
-            >
-              what to
-            </h4>
-            <h1
-              style={{
-                fontFamily: "Enriqueta",
-                fontSize: 40,
-              }}
-            >
-              EXPECT
-            </h1>
+            <WhatTo>what to</WhatTo>
+            <Expect>EXPECT</Expect>
             <p
               style={{
                 fontFamily: "Enriqueta",
@@ -133,39 +155,33 @@ const Trip = ({ data }) => {
           </Content>
         </WhatToExpect>
       </TripWrapper>
-      <Itinerary>
-        <ItineraryContainer>
-          <ItineraryHeading>Itinerary</ItineraryHeading>
-          <ItineraryWrapper>
-            <ItineraryList>
-              <ItineraryItem>
-                <TimeStamp>
-                  3rd May 2020
-                  <br /> 7:00 PM
-                </TimeStamp>
-                <ItemTitle>
-                  Chris Serrano posted a photo on your wall.
-                </ItemTitle>
-              </ItineraryItem>
-              <ItineraryItem>
-                <TimeStamp>
-                  19th May 2020
-                  <br /> 3:00 PM
-                </TimeStamp>
-                <ItemTitle>Mia Redwood commented on your last post.</ItemTitle>
-              </ItineraryItem>
-
-              <ItineraryItem>
-                <TimeStamp>
-                  17st June 2020
-                  <br /> 7:00 PM
-                </TimeStamp>
-                <ItemTitle>Lucas McAlister just send you a message.</ItemTitle>
-              </ItineraryItem>
-            </ItineraryList>
-          </ItineraryWrapper>
-        </ItineraryContainer>
-      </Itinerary>
+      {itinerary.length === 1 && (
+        <Itinerary>
+          <ItineraryContainer>
+            <ItineraryHeading>Itinerary - {node.duration[0]}</ItineraryHeading>
+            <ItineraryWrapper>
+              <ItineraryList>
+                {itinerary[0].map((it, idx) => (
+                  <ItineraryItem key={`iti-${idx}`}>
+                    <TimeStamp>{it.heading}</TimeStamp>
+                    <ItemTitle>{it.description}</ItemTitle>
+                  </ItineraryItem>
+                ))}
+              </ItineraryList>
+            </ItineraryWrapper>
+          </ItineraryContainer>
+        </Itinerary>
+      )}
+      {itinerary.length > 1 &&
+        itinerary.map((it, index) => (
+          <CollapsibleItinerary
+            key={`itn-${index}`}
+            index={index}
+            heading={`Itinerary`}
+            duration={node.duration[index]}
+            itinerary={it}
+          />
+        ))}
       <Gallery>
         <GalleryHeading>{`Glimpses of ${node.name}`}</GalleryHeading>
         <Slider {...settings}>
@@ -208,16 +224,21 @@ const Trip = ({ data }) => {
 
 export const query = graphql`
   query($slug: String) {
-    allDestinationsJson(filter: { slug: { eq: $slug  } }) {
+    allDestinationsJson(filter: { slug: { eq: $slug } }) {
       edges {
         node {
           name
           whatToExpectContent
+          duration
+          itinerary {
+            description
+            heading
+          }
           bigImage {
             childImageSharp {
               gatsbyImageData(
                 placeholder: BLURRED
-                layout: CONSTRAINED
+                #layout: CONSTRAINED
                 quality: 90
               )
             }
@@ -245,6 +266,19 @@ export const query = graphql`
       }
     }
   }
+`
+
+const WhatTo = styled.h4`
+  font-family: "Sacramento";
+  font-size: 40px;
+  line-height: "20px";
+  color: ${({ theme }) => theme.color.primary};
+`
+
+const Expect = styled.h1`
+  font-family: "Enriqueta";
+  font-size: 40;
+  color: ${({ theme }) => theme.color.primary};
 `
 
 const TripContainer = styled.div`
@@ -292,11 +326,12 @@ const PictureHeading = styled.div`
 `
 
 const PictureTitle = styled.div`
-  font-size: 12vw;
+  font-size: ${({ titleLength }) => (titleLength > 19 ? "0.6ch" : "1ch")};
   font-weight: 100;
   font-family: "Enriqueta";
   color: white;
   line-height: 10px;
+  height: 5vh;
 `
 
 const TripWrapper = styled.div`
@@ -405,12 +440,16 @@ const ItineraryItem = styled.li`
 const TimeStamp = styled.div`
   color: #50d890;
   position: relative;
-  width: 100px;
-  font-size: 16px;
+  padding: 4px;
+  font-size: 20px;
 `
 
 const ItemTitle = styled.div`
   color: #fff;
+  margin-top: 12px;
+  margin-left: 6px;
+  line-height: 25px;
+  font-size: 18px;
 `
 
 const ItineraryHeading = styled.h3`
@@ -418,6 +457,7 @@ const ItineraryHeading = styled.h3`
   font-size: 70px;
   color: white;
   padding: 1rem 4rem;
+  cursor: pointer;
 `
 
 const Gallery = styled.div`
@@ -429,6 +469,7 @@ const GalleryHeading = styled.h3`
   font-size: 70px;
   padding: 0px 3rem 3rem 3rem;
   text-align: center;
+  color: ${({ theme }) => theme.color.primary};
 
   @media screen and (max-width: 786px) {
     font-size: 50px;

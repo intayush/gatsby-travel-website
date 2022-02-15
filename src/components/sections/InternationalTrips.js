@@ -12,12 +12,12 @@ const InternationalTrips = () => {
             alt
             img {
               childrenImageSharp {
-                gatsbyImageData(
-                  placeholder: BLURRED
-                  layout: CONSTRAINED
-                  quality: 85
-                )
-                #gatsbyImageData(height: 500, placeholder: BLURRED, quality: 90)
+                # gatsbyImageData(
+                #   placeholder: BLURRED
+                #   layout: CONSTRAINED
+                #   quality: 85
+                # )
+                gatsbyImageData(height: 500, placeholder: BLURRED, quality: 90)
               }
             }
           }
@@ -26,7 +26,12 @@ const InternationalTrips = () => {
     }
   `)
 
-  return <Gallery title="International Trips" data={data.allInternationalTripsJson.edges} />
+  return (
+    <Gallery
+      title="International Trips"
+      data={data.allInternationalTripsJson.edges}
+    />
+  )
 }
 
-export default InternationalTrips;
+export default InternationalTrips

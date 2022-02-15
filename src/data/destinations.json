@@ -1,39 +1,100 @@
 [
   {
-    "slug": "kashmir",
-    "name": "Kashmir",
-    "bigImage": "../assets/images/destinations/kashmir/bigImage.jpg",
+    "slug": "bangalore",
+    "name": "Bangalore, Mysore, Ooty, Coorg",
+    "bigImage": "../assets/images/destinations/banglore/bigImage.jpg",
     "whatToExpectContent": "Picturesque and enchanting, Kashmir is cradled high in the lofty green Himalayas and hailed all over the world for its incredible natural beauty. Surrounded by mountain peaks, lush green valleys, glistening lakes, temples and spectacular Mughal-era gardens, it has inspired poets through centuries.",
-    "whatToExpectImage": "../assets/images/destinations/kashmir/whatToExpectImage.jpg",
+    "whatToExpectImage": "../assets/images/destinations/banglore/whatToExpectImage.jpg",
     "gallery": [
-      "../assets/images/destinations/kashmir/1.jpg",
-      "../assets/images/destinations/kashmir/2.jpg",
-      "../assets/images/destinations/kashmir/3.jpg",
-      "../assets/images/destinations/kashmir/4.jpg",
-      "../assets/images/destinations/kashmir/5.jpg",
-      "../assets/images/destinations/kashmir/6.jpg"
+      "../assets/images/destinations/banglore/1.jpg",
+      "../assets/images/destinations/banglore/2.png",
+      "../assets/images/destinations/banglore/3.jpg",
+      "../assets/images/destinations/banglore/4.jpg",
+      "../assets/images/destinations/banglore/5.jpg"
+    ],
+    "duration": ["5 nights 6 days"],
+    "itinerary": [
+      [
+        {
+          "heading": "Day 1: Bangalore Sightseeing",
+          "description": "On arrival to Bangalore pick up from Airport / Railway Station and transfer to Hotel. After fresh-up start Bangalore sightseeing – visit Iskcon Temple, Bull Temple, Tipu Sultan Palace, Lalbagh Botanical Garden, Vishveshwarya Technological Museum, Art Gallery, Cubbon Park, Vidhana Soudha (outside view), MG Road, and Indira Gandhi Musical Fountain Park. Overnight stay in Bangalore."
+        },
+        {
+          "heading": "Day 2: Bangalore to Mysore (Approx. 3 hr 42 min (143.8 km))",
+          "description": "After breakfast check out from hotel and proceed to Mysore. En-route halt at Srirangapatna, visit Sri Ranganathaswamy Temple, Tippu's Summer Palace, Srirangapatna Fort and Gumbuz. Proceed to Mysore, on arrival visit Chamundi Hills to pay your obeisance to Goddess Chamundeshwari. On the way back to the city you will see the Statue of Mahishasura and Nandi. Later visit the Mysore Zoo, one of the oldest and well-maintained zoos in India. And after visit the Mysore Palace museum and St. Philomena's Church. Later drive to Brindavan Gardens a show garden that has a botanical park with fountains as well as a musical fountain. Drive back to Mysore. Overnight stay in Mysore Hotel."
+        },
+        {
+          "heading": "Day 3: Mysore to Ooty (Approx. 3 hr. 10 min (125.0 km)",
+          "description": "After breakfast check out and proceed to Ooty. En-route pass by Bandipur National Forest, visit Pykara dam & Houseboat. On arrival to Ooty check into the hotel. After lunch goes for Ooty sightseeing - Rose Garden, Ooty Lake, and Botanical Garden. Overnight stay at Ooty."
+        },
+        {
+          "heading": "Day 4: Ooty & Coonoor Sightseeing",
+          "description": "After breakfast, proceed to Coonoor by Train. Cab will reach by road and take you for Coonoor Sightseeing - Sim’s Park, Lam’s Rock, Dolphin Nose, and Ketti Valley view. Back in Ooty visit the Tea factory, Tea Museum, and Doddabetta Peak. Overnight stay at Ooty."
+        },
+        {
+          "heading": "Day 5: Ooty to Coorg Sightseeing (Approx. 5 hr 41 min (245.9 km))",
+          "description": "After breakfast check out and proceed to Coorg. En-route visit Bylakuppe - the largest Tibetan settlement in South India and is famous for Tibetian Golden Temple. On arrival check in to the hotel. Evening visit Raja's Seat. Overnight stay at Coorg."
+        },
+        {
+          "heading": "Day 6: Coorg Sightseeing",
+          "description": "After breakfast proceeds to Talakaveri - the birthplace of river Cauvery, en-route visit Bhagamandala Bhagandeshwara Temple, and Triveni Sangama. After returning to Madikeri visit Abbey Falls, Madikeri Fort, and Omkareshwar Temple. Overnight stay at Coorg."
+        },
+        {
+          "heading": "Day 7: Coorg to Bangalore /Departure (Approx. 5 hr 53 min (248.1 km))",
+          "description": "After breakfast, proceed to Bangalore. En-route, visit Dubare Elephant Camp, an elephant training camp on the banks of the River Kaveri where bathing and feeding are done. Visitors can also participate in various activities like washing and scrubbing elephants. A ride on the elephant would be the cream of all the experience in Dubare Elephant Camp. And Later Kaveri Nisargadhama an island formed by the river Cauvery. Continue to Bangalore, on arrival get transferred to Bangalore Airport / Railway Station / Bus Stand."
+        }
+      ]
     ]
   },
   {
-    "slug": "maldives",
-    "name": "Maldives",
-    "bigImage": "../assets/images/destinations/maldives/bigImage.jpg",
-    "whatToExpectContent": "Maldives, in full Republic of Maldives, also called Maldive Islands, independent island country in the north-central Indian Ocean. It consists of a chain of about 1,200 small coral islands and sandbanks (some 200 of which are inhabited), grouped in clusters, or atolls.",
-    "whatToExpectImage": "../assets/images/destinations/maldives/whatToExpectImage.jpg",
+    "slug": "kodaikanal",
+    "name": "Kodaikanal",
+    "bigImage": "../assets/images/destinations/kodaikanal/bigImage.jpg",
+    "whatToExpectContent": "Kodaikanal is a small hilly town located on Palani Hills of Western Ghats in the Dindigul district about 7001 ft above from mean sea level. It is sandwiched between the Parappar and Gundar Valleys and largely covered with thick forest of Eucalyptus, cypress, acacia and Shola Trees. Kodaikanal is one of the most famous hill stations in India due to its beautiful scenic view. This town is an address of many adventurous forests, enhancing waterfalls and ubiquitous grassland like a green carpet lying on the earth and lots of lovely flower. A special type of flower name kurinji is very famous as it blossoms only once in twelve years.",
+    "whatToExpectImage": "../assets/images/destinations/kodaikanal/whatToExpectImage.jpg",
     "gallery": [
-      "../assets/images/destinations/maldives/1.jpg",
-      "../assets/images/destinations/maldives/2.jpg",
-      "../assets/images/destinations/maldives/3.jpg",
-      "../assets/images/destinations/maldives/4.jpg",
-      "../assets/images/destinations/maldives/5.jpg",
-      "../assets/images/destinations/maldives/6.jpg"
+      "../assets/images/destinations/kodaikanal/1.jpg",
+      "../assets/images/destinations/kodaikanal/2.jpg",
+      "../assets/images/destinations/kodaikanal/3.jpg",
+      "../assets/images/destinations/kodaikanal/4.jpg",
+      "../assets/images/destinations/kodaikanal/5.jpg",
+      "../assets/images/destinations/kodaikanal/6.jpg"
+    ],
+    "duration": ["5 nights 6 days"],
+    "itinerary": [
+      [
+        {
+          "heading": "ARRIVE COIMBATORE - KODAIKANAL (Approx. 4 hr 39 min (171.9 km))",
+          "description": "On arrival at Coimbatore airport, our representative will meet you and will transfer you to Kodaikanal. Arrive at Kodaikanal and check in to the resort. One of the most serene and hill stations. Day free for leisure and  Overnight stay at Kodaikanal."
+        },
+        {
+          "heading": "KODAIKANAL",
+          "description": "After breakfast proceed for a sightseeing tour of Kodaikanal. Start your tour with a boating in Kodaikanal lake, later visit the beautiful Bryant park with many exotic and hybrid plants. Other attractions are Coaker’s walk where you can enjoy a walk along the steep slope offering panoramic views of the plain, Greenvalley view offers panoramic view of the plains, valleys, hills and the Vaigai dam. Overnight stay at Kodaikanal."
+        },
+        {
+          "heading": "Day 3 KODAIKANAL - MADURAI (Approx. 3 hr 15 min (116.1 km))",
+          "description": "After breakfast checkout from the hotel and drive to Madurai. Arrive at Madurai and check in to the hotel. Late evening witness the vibrant and colorful Pooja ceremony at Meenakshi Temple. Overnight stay at Madurai."
+        },
+        {
+          "heading": "Day 4 MADURAI - RAMESWARAM (Approx. 3 hr 7 min (173.2 km))",
+          "description": "Start your day with a sightseeing tour of Madurai. Highly significant with its cultural and historical background, the city has tourist attractions in plenty, the most prominent among them being The Meenakshi Temple with its towering gopurams and rare sculptures. Other important attractions include Thirumalai Naicker Palace, Koodal Azhagar Temple and the Gandhi Museum. Checkout from the hotel and proceed on the drive to Rameswaram - the most sacred temple town in India is an island hallowed by the epic Ramayana. Arrive at Rameswaram and check in to the hotel. Overnight stay at Rameswaram."
+        },
+        {
+          "heading": "Day 5 RAMESWARAM",
+          "description": "Start your day with a sightseeing tour of Rameswaram. The holy island is considered as one of the four most sacred Hindu pilgrim centers have the most visited Shiva shrines, dedicated to Sri Ramanathaswamy. Associated with the life of Sri Rama, the hero of the epic Ramayana, that both Saivites and Vaishnavites visit Rameswaram with devotion. The Ramanathaswamy temple here has the world’s longest corridor. The sea is just 100metres away from the entrance of the temple is very calm and the water is considered scared and pilgrims aspire for a holy dip in the sea. Traditional belief among the Hindus that a pilgrimage to Kashi will be complete only after a visit to Rameswararm, also hailed as “Benaras of the South”. Devipattinam is a coastal village in Ramanathapuram district where you can visit the Navagrahas installed inside the sea as 09 pillars. Pilgrims aspire for a holy dip at the sea at Dhanushkodi, revered as Sethu Theertha where Mahodathi (Bay of Bengal) meets Ratnakara (India Ocean).(To travel to Dhanushkodi, need to use four wheel drive jeep / tempos since you have to travel on beach sand). You can also visit other famous temples located near Rameswaram - Kodandarama temple, Sethukarai Hanuman temple and Ramar Padham. Overnight stay at Rameswaram."
+        },
+        {
+          "heading": "Day 6 RAMESWARAM - MADURAI - DEPART (Approx. 3 hr 7 min (173.2 km))",
+          "description": "Check out from the resort and drive to Madurai airport. Board the flight to your onward destination feeling contented about a wonderful holiday you spent with us. Our services end after dropping you at Madurai airport."
+        }
+      ]
     ]
   },
   {
     "slug": "kerela",
     "name": "Kerela",
     "bigImage": "../assets/images/destinations/kerela/bigImage.jpg",
-    "whatToExpectContent": "Kerala, a state in Southern India is known as a tropical paradise of waving palms and wide sandy beaches. It is a narrow strip of coastal territory that slopes down the Western Ghats in a cascade of lush green vegetation, and reaches to the Arabian sea.",
+    "whatToExpectContent": "Echo Point, Gundala Lake, Elephant Arrival Point, Cinema Shooting Point, Jungle Honey Bee Nest, Mattuppetty, Tata Tea Museum, Eravikulam National Park, Blossom Hydel Park, Spice Plantation, Anaimudi Peak, Periyar National Park, Houseboat Cruise, Kovalam Beach, Padmanabhapuram Palace, Sucheendram Temple, Vivekananda Rock Memorial",
     "whatToExpectImage": "../assets/images/destinations/kerela/whatToExpectImage.jpg",
     "gallery": [
       "../assets/images/destinations/kerela/1.jpg",
@@ -42,13 +103,68 @@
       "../assets/images/destinations/kerela/4.jpg",
       "../assets/images/destinations/kerela/5.jpg",
       "../assets/images/destinations/kerela/6.jpg"
+    ],
+    "duration": ["6 nights 7 days", "4 nights 5 days"],
+    "itinerary": [
+      [
+        {
+          "heading": "Day 1 Drive from Cochin to Munnar (140 km / 4 Hours)",
+          "description": "Arrival at the Cochin International Airport, you will be greeted whole-heartedly by our tour guides and representatives. Later  you will be driven to the scenic hill station of Munnar. arrival in this hilly abode will be followed by your checking-in into a hotel or a resort. Spent the rest of the day at total leisure while enjoy the stunning beauty of Munnar; overnight stay in the hotel/resort."
+        },
+        {
+          "heading": "Day 2 Full Day Munnar Excursion",
+          "description": "This morning after freshened up and enjoy a healthy breakfast.  You will be guided for a full day sightseeing tour wherein you will be visiting the important landmarks and other important places in Munnar. Mattuppetty Dam, Echo Point, Gundala Lake, Photo Point, Elephant Arrival Spot Cinema Shooting, and several other places. During the day, you will also visit Eravikulam National Park where you can enjoy spotting the exotic Nilgiri Tahr and several other wildlife species. Post this, a visit to Anaimudi Peak; the highest peak in South India, along with Tata Tea Museum, spice plantations and other places will be visited during the day overnight stay will be in Munnar."
+        },
+        {
+          "heading": "Day 03- Drive from Munnar to Thekkady (Approx. 2 hr 55 min (85.1 km))",
+          "description": "Today morning  after breakfast at the Munnar hotel,  check-out from the hotel. Hereafter, you will be driven towards the gorgeous Thekkady town, where you enjoy the activities for the rest of the day. Following your arrival in the town, and take an evening boat ride to national park. Coming back from the boat ride, you can go for local shopping and enjoy the local flavours of Thekkady; overnight stay in the hotel/resort."
+        },
+        {
+          "heading": "Day 04- Drive from Thekkady to Alleppey (Approx.4 hr (137.9 km)) ",
+          "description": "After breakfast is served at the Thekkady Hotel, you will be checked-out and driven towards Alleppey, the ‘Backwater Capital’ of Kerala. Also known as the ‘Venice of the East’, this backwater abode is a true treasure trove for the nature lovers, honeymooners, leisure seekers and other classes of visitors as well. Arriving in Alleppey, check-in into a houseboat and enjoy manoeuvring the silent yet alluring backwaters. Delight in the facilities and amenities within the boat and pass through the lush coconut lagoons, never-ending paddy fields, narrow canals and coir villages; overnight stay in the houseboat"
+        },
+        {
+          "heading": "Day 5- Drive from Alleppey to Kovalam (160 km / 4 Hours)",
+          "description": "From the ‘Backwater Capital’, today you will be driven to Kovalam, the ‘Beach Capital’ of Kerala. The journey will start post breakfast and will take around 4 hours. Arriving in Kovalam, you will be taken to the Kovalam Beach, where you can enjoy beach activities like swimming, sunbathing, herbal body massages, water sports and lot more. With the advent of the evening, you will be checked-in into a beach resort for your overnight stay."
+        },
+        {
+          "heading": "Day 6 Drive from Kovalam to Kanyakumari (100 km / 3 Hours)",
+          "description": "Wake up to this lovely morning and get freshened up!  you will be driven towards Kanyakumari or the ‘Land’s End Point’; en route, you can visit the stunning Padmanabhapuram Palace. Built by the Maharaja of Travancore in the 15th century, this wooden palace is an architectural marvel in its own. Following this, you will be visiting the pious Sucheendram Temple, and continuing your drive to Kanyakumari; the confluence point of Indian Ocean, Arabian Sea and the Bay of Bengal.Arriving in Kanyakumari by afternoon, you can enjoy an exciting boat ride to the Vivekananda Rock Memorial; the spot where Swami Vivekananda used to meditate. By evening, you can catch the magical views of the setting sun from nearby this memorial, and board the vehicles back to Kovalam for your overnight stay."
+        },
+        {
+          "heading": "Day 7 Drive from Kovalam to Trivandrum (50 km / 1 Hour)",
+          "description": "Today will be the last day of this amazing and enchanting Kerala tour! After breakfast is served, you will be checked-out from the Kovalam beach resort, and driven to Trivandrum. Following your drop at the Trivandrum Airport, this heart-warming tour will come an end."
+        }
+      ],
+      [
+        {
+          "heading": "Day 01- Arrival at Kochi Airport / Railway Station – Munnar (Approx. 4 hrs (126.6 km))",
+          "description": "Welcome to God’s Own Country ! You will be picking from Cochin Airport / Ernakulam railway station and drive to Munnar (04 Hrs drive). On the way enjoy some waterfalls and natural scenic spots. On arrival at Munnar check into Hotel and relax for the rest of the day. Overnight stay at the Munnar hotel."
+        },
+        {
+          "heading": "Day 02- Munnar Excursion",
+          "description": "Wake up to a beautiful morning at the hotel/resort; get freshened up and enjoy a healthy breakfast. Post this, you will be guided for a full day sightseeing tour wherein you will be visiting the important landmarks and other important places in Munnar. Mattuppetty Dam, Echo Point, Gundala Lake, Photo Point, Elephant Arrival Spot Cinema Shooting, and several other places. During the day, you will also visit Eravikulam National Park where you can enjoy spotting the exotic Nilgiri Tahr and several other wildlife species. Post this, a visit to Anaimudi Peak; the highest peak in South India, along with Tata Tea Museum, International Blossom(Hydel) Park, spice plantations and other places will be visited during the day overnight stay will be in Munnar."
+        },
+        {
+          "heading": "Day 03- Drive from Munnar to Thekkady (Approx. 2 hr 55 min (85.1 km))",
+          "description": "Today morning  after breakfast at the Munnar hotel/resort, pack your bags and check-out from the hotel/resort. Hereafter, you will be driven towards the gorgeous Thekkady town, where you enjoy the activities for the rest of the day. Following your arrival in the town, and take an evening boat ride to national park. Coming back from the boat ride, you can go for local shopping and enjoy the local flavours of Thekkady; overnight stay in the hotel/resort."
+        },
+        {
+          "heading": "Day 04- Drive from Thekkady to Alleppey (Approx.4 hr (137.9 km)) ",
+          "description": "After breakfast is served at the Thekkady hotel/resort, you will be checked-out and driven towards Alleppey, the ‘Backwater Capital’ of Kerala. Also known as the ‘Venice of the East’, this backwater abode is a true treasure trove for the nature lovers, honeymooners, leisure seekers and other classes of visitors as well. Arriving in Alleppey, check-in into a houseboat and enjoy manoeuvring the silent yet alluring backwaters. Delight in the facilities and amenities within the boat and pass through the lush coconut lagoons, never-ending paddy fields, narrow canals and coir villages; overnight stay in the houseboat."
+        },
+        {
+          "heading": "Day 05- Drive form Alleppey to Kochi Airport (Approx. 1 hr 19 min (53.0 km))",
+          "description": "Waking up today morning, pack your bags and check-out from the Houseboat/ Hotel. Wish adieu to Alleppey and take your final drive to Cochin; with your arrival in Cochin, this exciting tour will come to an end!"
+        }
+      ]
     ]
   },
   {
-    "slug": "himachal",
-    "name": "Himachal",
+    "slug": "manali",
+    "name": "Manali",
     "bigImage": "../assets/images/destinations/himachal/bigImage.jpg",
-    "whatToExpectContent": "Covering an area of 55,673 square kilometres (21,495 sq mi), it is a mountainous state. Most of the state lies on the foothills of the Dhauladhar Range. At 6,816 m, Reo Purgyil is the highest mountain peak in the state of Himachal Pradesh. The drainage system of Himachal is composed both of rivers and glaciers.",
+    "whatToExpectContent": "Located in the Himalayas, the northern Indian state of Himachal Pradesh is replete with snowy mountains, hilly terrains, and numerous water bodies. From the surreal terrain of Spiti Valley to hill stations in Kullu Valley, Himachal is like a cupboard full of boxes waiting to be explored. The Himachal tour packages are highly popular in North India because of the scenic beauty and pleasant climate of the state. The ‘Abode of Snow’ is known for its adventure activities, religious centres, colonial heritage, and romantic getaways. Hence, opting for a Himachal trip is a true delight for every kind of tourist, whether they are adventure enthusiasts, explorers, nature lovers, or newlywed couples. Spend your holiday in Himachal.",
     "whatToExpectImage": "../assets/images/destinations/himachal/whatToExpectImage.jpg",
     "gallery": [
       "../assets/images/destinations/himachal/1.jpg",
@@ -57,6 +173,31 @@
       "../assets/images/destinations/himachal/4.jpg",
       "../assets/images/destinations/himachal/5.jpg",
       "../assets/images/destinations/himachal/6.jpg"
+    ],
+    "duration": ["4 nights 5 days"],
+    "itinerary": [
+      [
+        {
+          "heading": "Day 01 - Arrival at Delhi - Manali (Approx.  13 hr 1 min (536.2 km))",
+          "description": "Early morning drive from Delhi to Manali. Meet VMH representative upon arrival at Manali and transfer to your pre-booked hotel. Rest of the day is free for the leisure activities. Enjoy delectable dinner and overnight stay at the hotel."
+        },
+        {
+          "heading": "Day 02 - Manali: Solang Valley OR Rohtang Pass - Manali",
+          "description": "This Beautiful morning after breakfast at hotel and after that Proceed for a full day excursion by visiting the several prominent places such as the Kothi Gorge, Gulaba Marhi, Rohtang Pass and Solang Valley. In the evening, return to your hotel, enjoy the scrumptious dinner and a comfortable overnight stay."
+        },
+        {
+          "heading": "Day 03 - Manali Local Sightseeing",
+          "description": "After the hearty breakfast, get ready for the sightseeing tour of the Manali hill station and visit the Hadimba Devi Temple, Manu Temple, Tibetan Monasteries and Vashist Village. Dinner and overnight stay at the hotel"
+        },
+        {
+          "heading": "Day 04 - Drive from Manali  to Shimla via Kullu  (Approx. 7 hr 25 min (236.6 km))",
+          "description": "Early morning drive to Shimla from Manali. En route visit Kullu. And here you can enjoy river rafting after that drive for Shimla. Upon arrival in Shimla, check in at your hotel. Rest of the day is free for your own leisure activities and you can enjoy it in whatever manner you like. Overnight stay at the hotel."
+        },
+        {
+          "heading": "Day 05 -  Shimla - Kufri - Shimla",
+          "description": "After breakfast at the hotel, get ready for the sightseeing tour of Shimla. Visit several prominent attractions like the Kalbadevi Temple, Jakhu Temple, Hanuman Temple and Christ Church. In the afternoon, proceed for an excursion to Kufri from Shimla where you can rejuvenate yourself amidst the dense forests, snow-capped mountains and exotic flora and fauna. In the evening, visit mall road and the ridge to do shopping. Dinner and overnight stay at the hotel. Waking up today morning, pack your bags and check-out from the Shimla Hotel."
+        }
+      ]
     ]
   }
 ]

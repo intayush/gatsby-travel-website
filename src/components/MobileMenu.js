@@ -19,7 +19,6 @@ const MobileMenu = ({ isOpen, closeMenu }) => {
             <MenuItem
               key={`navitem_${key}`}
               onClick={() => {
-                console.log('asda');
                 navigate(`${item.link}`)
                 closeMenu()
               }}

@@ -1,15 +1,15 @@
 import React from "react"
+import { navigate } from "gatsby"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import Button from "./generic/Button";
+import Button from "./generic/Button"
 import { ImLocation } from "react-icons/im"
 
 import Carousel from "./generic/Carousel"
 
 const Gallery = ({ data, title }) => {
-
   return (
     <>
       <HeadingContainer>
@@ -51,7 +51,10 @@ const Gallery = ({ data, title }) => {
                       <ProductTitle>{item.node.name}</ProductTitle>
                     </TextWrap>
                     <Button
-                      to="/trips"
+                      onClick={() => {
+                        navigate(item.node.route)
+                      }}
+                      //to="/trips"
                       primary="true"
                       round="true"
                       css={`
@@ -74,8 +77,7 @@ const Gallery = ({ data, title }) => {
   )
 }
 
-const WindowWrapper = styled.div`
-`
+const WindowWrapper = styled.div``
 const Window = styled.div`
   position: relative;
   overflow: hidden;

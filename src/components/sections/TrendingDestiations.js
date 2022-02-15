@@ -13,12 +13,12 @@ const TrendingDestinations = () => {
             alt
             img {
               childrenImageSharp {
-                # gatsbyImageData(
-                #   placeholder: BLURRED
-                #   layout: FULL_WIDTH
-                #   quality: 85
-                # )
-                gatsbyImageData(height: 500, placeholder: BLURRED, quality: 90)
+                gatsbyImageData(
+                  placeholder: BLURRED
+                  layout: FULL_WIDTH
+                  quality: 85
+                )
+                # gatsbyImageData(height: 500, placeholder: BLURRED, quality: 90)
               }
             }
           }
@@ -26,6 +26,8 @@ const TrendingDestinations = () => {
       }
     }
   `)
+
+  console.log(data);
 
   return (
     <Gallery
