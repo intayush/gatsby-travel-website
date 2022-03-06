@@ -1,6 +1,7 @@
 import React from "react"
+import { navigate } from "gatsby"
 import styled from "styled-components"
-import BackgroundSlider from "react-background-slider"
+import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import { GlobalStyle } from "../components/styles/GlobalStyles"
@@ -8,6 +9,9 @@ import Button from "../components/generic/Button"
 import Seo from "../components/seo"
 
 const Contact = () => {
+  const goToHome = () => {
+    navigate(`/`)
+  }
   return (
     <Layout>
       <GlobalStyle />
@@ -18,34 +22,84 @@ const Contact = () => {
             <ContactInformationTitle>
               Contact Information
             </ContactInformationTitle>
-            <p>Fill up the form and our team will get back to you</p>
+            <p>
+              Fill up the form and our team will get back to you to resolve your
+              queries
+            </p>
+            <LinksWrapper>
+              <IconAndInfo>
+                <StaticImage
+                  src={`../assets/svg/phone.svg`}
+                  height={30}
+                  alt=""
+                  placeholder="tracedSVG"
+                  objectFit="contain"
+                />
+                <span
+                  style={{
+                    marginLeft: 10,
+                  }}
+                >
+                  +91 77601 94184
+                </span>
+              </IconAndInfo>
+              <IconAndInfo>
+                <StaticImage
+                  src={`../assets/svg/mail.svg`}
+                  height={30}
+                  alt=""
+                  placeholder="tracedSVG"
+                  objectFit="contain"
+                />
+                <span
+                  style={{
+                    marginLeft: 10,
+                  }}
+                >
+                  info@vmh.com
+                </span>
+              </IconAndInfo>
+              <IconAndInfo>
+                <StaticImage
+                  src={`../assets/svg/location.svg`}
+                  height={30}
+                  alt=""
+                  placeholder="tracedSVG"
+                  objectFit="contain"
+                />
+                <span
+                  style={{
+                    marginLeft: 10,
+                  }}
+                >
+                  VMH Address
+                </span>
+              </IconAndInfo>
+            </LinksWrapper>
           </LinksSection>
           <ContactSection>
             <ContactForm>
               <FormControl>
-                <InputLabel>First Name</InputLabel>
-                <CardInput placeholder="John" type="text" required />
+                <InputLabel>Name</InputLabel>
+                <CardInput type="text" required />
               </FormControl>
-              <FormControl>
+              {/* <FormControl>
                 <InputLabel>Last Name</InputLabel>
                 <CardInput placeholder="Doe" type="text" required />
-              </FormControl>
+              </FormControl> */}
               <FormControl>
                 <InputLabel>Email</InputLabel>
-                <CardInput
-                  placeholder="johndoe@gmail.com"
-                  type="text"
-                  required
-                />
+                <CardInput type="text" required />
               </FormControl>
               <FormControl>
                 <InputLabel>Mobile No.</InputLabel>
-                <CardInput placeholder="7317939164" type="text" required />
+                <CardInput type="text" required />
               </FormControl>
             </ContactForm>
             <MessageSection>
               <Message rows={5} placeholder="Your query goes here..."></Message>
             </MessageSection>
+            <SubmitButton>Submit</SubmitButton>
           </ContactSection>
         </Card>
       </Container>
@@ -60,11 +114,27 @@ const Container = styled.div`
   min-height: 60vh;
 `
 
+const SubmitButton = styled(Button)`
+  margin-top: 16px;
+  float: right;
+`
+
+const LinksWrapper = styled.div`
+  margin-top: 40px;
+`
+
+const IconAndInfo = styled.span`
+  margin-top: 35px;
+  display: flex;
+  align-items: center;
+`
+
 const Card = styled.div`
   width: 75%;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.05), 0 0px 40px rgba(0, 0, 0, 0.08);
   display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
   min-height: 100px;
 `
 

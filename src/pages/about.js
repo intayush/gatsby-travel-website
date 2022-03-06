@@ -1,4 +1,5 @@
 import React from "react"
+import { navigate } from "gatsby"
 import styled from "styled-components"
 import BackgroundSlider from "react-background-slider"
 
@@ -11,6 +12,10 @@ import image2 from "../assets/images/aboutus1.jpg"
 import image3 from "../assets/images/aboutus2.jpg"
 
 const AboutUs = () => {
+  const goToContatsUs = () => {
+    navigate(`/contact`)
+  }
+
   return (
     <Layout>
       <GlobalStyle />
@@ -24,13 +29,33 @@ const AboutUs = () => {
         />
         <Content>
           <TextContainer>
-            An About Us page helps your company make a good first impression,
-            and is critical for building customer trust and loyalty. An About Us
-            page should make sure to cover basic information about the store and
-            its founders, explain the company's purpose and how it differs from
-            the competition, and encourage discussion and interaction. Here are
-            some free templates, samples, and example About Us pages to help
-            your ecommerce store stand out from the crowd.
+            Nurtured from the seed of a single great idea - to empower the
+            traveller - Vacation Mantra Holidays is a pioneer in India’s online
+            travel industry. We pride ourselves on organising high-quality
+            tours, chosen and organised by experts. Founded in the year 2020,
+            VMH came to life to empower the Indian traveller with instant
+            bookings and comprehensive choices. The company initiated its
+            journey serving the Indian travel market offering a range of
+            best-value products and services powered by technology and
+            round-the-clock customer support.
+            <br />
+            We believe that we have been able to develop relationships across
+            our portfolio of suppliers for airlines, hotels, holiday packages,
+            buses and taxis. We have dedicated teams managing our existing
+            relationships and enhancing and developing new relationships with
+            airlines and hotel chains.
+            <br />
+            Our products and services are organized primarily in the following
+            segments:
+            <ul
+              style={{
+                listStyle: "none",
+              }}
+            >
+              <li>1) Airline tickets</li>
+              <li>2) Hotels and holiday packages</li>
+              <li>3) Other travel services</li>
+            </ul>
           </TextContainer>
           <Button
             as="button"
@@ -47,6 +72,7 @@ const AboutUs = () => {
                 height: 50px;
               }
             `}
+            onClick={goToContatsUs}
           >
             Contact Us
           </Button>
@@ -72,7 +98,7 @@ const Heading = styled.h1`
 `
 
 const Content = styled.div`
-  padding: 24px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -80,7 +106,7 @@ const Content = styled.div`
 `
 
 const TextContainer = styled.p`
-  font-size: clamp(1rem, 2vw, 40px);
+  font-size: clamp(0.5rem, 2vw, 28px);
   line-height: 1.5;
   color: white;
   font-weight: 100;
