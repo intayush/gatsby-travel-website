@@ -121,33 +121,46 @@ const Cabs = () => {
               </IconAndInfo>
             </LinksWrapper>
           </LinksSection>
-          <ContactSection>
-            <ContactForm>
-              <FormControl>
-                <InputLabel>Name</InputLabel>
-                <CardInput type="text" required />
-              </FormControl>
-              {/* <FormControl>
+          <form
+            action="https://formsubmit.co/ayush.singh.96@gmail.com"
+            method="POST"
+          >
+            <ContactSection>
+              <ContactForm>
+                <FormControl>
+                  <InputLabel>Name</InputLabel>
+                  <CardInput type="text" required />
+                </FormControl>
+                {/* <FormControl>
                 <InputLabel>Last Name</InputLabel>
                 <CardInput placeholder="Doe" type="text" required />
               </FormControl> */}
-              <FormControl>
-                <InputLabel>Email</InputLabel>
-                <CardInput type="text" required />
-              </FormControl>
-              <FormControl>
-                <InputLabel>Mobile No.</InputLabel>
-                <CardInput type="text" required />
-              </FormControl>
-            </ContactForm>
-            {/* <MessageSection>
+                <FormControl>
+                  <InputLabel>Email</InputLabel>
+                  <CardInput type="text" required />
+                </FormControl>
+                <FormControl>
+                  <InputLabel>Mobile No.</InputLabel>
+                  <CardInput type="text" required />
+                </FormControl>
+              </ContactForm>
+              {/* <MessageSection>
               <Message rows={5} placeholder="Your query goes here..."></Message>
             </MessageSection> */}
-            <input type="hidden" name="_next" value="https://vmh-travel.netlify.app/thankyou"></input>
-            <input type="hidden" name="_subject" value="New Cab Booking Request"></input>
-            <input type="hidden" name="_template" value="box"></input>
-            <SubmitButton>Submit</SubmitButton>
-          </ContactSection>
+              <input
+                type="hidden"
+                name="_next"
+                value="https://vmh-travel.netlify.app/thankyou"
+              ></input>
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Cab Booking Request"
+              ></input>
+              <input type="hidden" name="_template" value="box"></input>
+              <SubmitButton>Submit</SubmitButton>
+            </ContactSection>
+          </form>
         </Card>
       </Container>
     </Layout>
