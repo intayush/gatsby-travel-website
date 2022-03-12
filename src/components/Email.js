@@ -1,13 +1,58 @@
 import React from "react"
+import { navigate } from "gatsby"
 import styled from "styled-components"
 import EmailBg from "../assets/images/email.jpg"
 import Button from "./generic/Button"
+import { StaticImage } from "gatsby-plugin-image"
 
 const Email = () => {
   return (
     <EmailContainer>
       <EmailContent>
-        <h1>Get Access to Exclusive Offers</h1>
+        <Circle
+          onClick={() => {
+            navigate("/services/flights")
+          }}
+        >
+          <StaticImage
+            src="../assets/svg/flights.svg"
+            height={100}
+            alt=""
+            placeholder="tracedSVG"
+            objectFit="contain"
+          />
+          <Text>Flights</Text>
+        </Circle>
+        <Circle
+          onClick={() => {
+            navigate("/services/flights")
+          }}
+        >
+          <StaticImage
+            src="../assets/svg/hotels.svg"
+            height={100}
+            alt=""
+            placeholder="tracedSVG"
+            objectFit="contain"
+          />
+          <Text>Hotels</Text>
+        </Circle>
+        <Circle
+          onClick={() => {
+            navigate("/services/flights")
+          }}
+        >
+          <StaticImage
+            src="../assets/svg/cabs.svg"
+            height={100}
+            alt=""
+            placeholder="tracedSVG"
+            objectFit="contain"
+          />
+          <Text>Cabs</Text>
+        </Circle>
+
+        {/* <h1>Get Access to Exclusive Offers</h1>
         <p>Sign up for our newsletter below</p>
         <form action="#">
           <FormWrap>
@@ -36,7 +81,7 @@ const Email = () => {
               Signup
             </Button>
           </FormWrap>
-        </form>
+        </form> */}
       </EmailContent>
     </EmailContainer>
   )
@@ -51,20 +96,24 @@ const EmailContainer = styled.div`
     ),
     url(${EmailBg}) no-repeat center;
   background-size: cover;
-  height: 450px;
+  height: 600px;
   width: 100%;
-  padding: 5rem 2rem;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
 `
 const EmailContent = styled.div`
+  height: 100%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
+  @media screen and (max-width: 786px) {
+    flex-direction: column;
+  }
 
-  h1 {
+  /* h1 {
     text-align: center;
     margin-bottom: 1rem;
     font-size: clamp(1rem, 5vw, 3rem);
@@ -80,7 +129,7 @@ const EmailContent = styled.div`
 
   form {
     z-index: 10;
-  }
+  } */
 `
 const FormWrap = styled.div`
   input {
@@ -104,6 +153,30 @@ const FormWrap = styled.div`
       margin-right: 0;
     }
   }
+`
+
+const Circle = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  padding: 30px;
+  background: white;
+  -webkit-box-shadow: 3px 9px 13px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 3px 9px 13px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 3px 9px 13px 1px rgba(0, 0, 0, 0.75);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+`
+const Text = styled.div`
+  margin-top: 10px;
+  color: black;
 `
 
 export default Email

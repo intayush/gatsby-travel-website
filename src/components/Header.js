@@ -6,12 +6,12 @@ import { FaBars } from "react-icons/fa"
 import { MenuData } from "../data/MenuData"
 import Icons from "../data/MenuIcons"
 import MobileMenu from "./MobileMenu"
+import scrollTo from "gatsby-plugin-smoothscroll"
 
 const Header = ({ currentTheme }) => {
   const ref = useRef(null)
   const [scroll, setScroll] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
-
   const menuCloseHandler = () => {
     setIsOpen(false)
   }
@@ -51,7 +51,7 @@ const Header = ({ currentTheme }) => {
         style={{
           cursor: "pointer",
           position: "absolute",
-          height: "80%"
+          height: "80%",
         }}
       />
       <Bars
@@ -61,14 +61,32 @@ const Header = ({ currentTheme }) => {
         }}
       />
       <NavMenu>
-        {MenuData.map((item, key) => {
+        {/* {MenuData.map((item, key) => {
           return (
             <NavLink key={`navitem_${key}`} to={item.link} active={scroll}>
               {Icons[key]}
               {item.title}
             </NavLink>
           )
-        })}
+        })} */}
+        <NavLink to={"/about"} active={scroll}>
+          {Icons[0]}
+          About
+        </NavLink>
+        <NormalLink
+          ref={linkRef}
+          active={scroll}
+          onClick={() => {
+            scrollTo("#emailSection")
+          }}
+        >
+          {Icons[1]}
+          Services
+        </NormalLink>
+        <NavLink to="/contact" active={scroll}>
+          {Icons[2]}
+          Contact
+        </NavLink>
       </NavMenu>
     </Nav>
   )
@@ -95,6 +113,22 @@ const Nav = styled.nav`
 `
 
 const NavLink = styled(Link)`
+  color: ${({ active, theme }) => (active ? theme.color.primary : "#ffffff")};
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 4rem;
+  height: 100%;
+  cursor: pointer;
+
+  @media screen and (max-width: 960px) {
+    background: ${({ active, theme }) =>
+      active ? theme.background.secondary : "transparent"};
+    transition: 0.8s all ease;
+  }
+`
+
+const NormalLink = styled.a`
   color: ${({ active, theme }) => (active ? theme.color.primary : "#ffffff")};
   display: flex;
   align-items: center;
