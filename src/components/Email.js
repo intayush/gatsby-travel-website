@@ -39,7 +39,7 @@ const Email = () => {
         </Circle>
         <Circle
           onClick={() => {
-            navigate("/services/flights")
+            navigate("/services/hotels")
           }}
         >
           <StaticImage
@@ -48,6 +48,9 @@ const Email = () => {
             alt=""
             placeholder="tracedSVG"
             objectFit="contain"
+            onClick={() => {
+              navigate("/services/hotels")
+            }}
           />
           <Text>Cabs</Text>
         </Circle>
