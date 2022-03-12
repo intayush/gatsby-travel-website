@@ -74,7 +74,6 @@ const Header = ({ currentTheme }) => {
           About
         </NavLink>
         <NormalLink
-          ref={linkRef}
           active={scroll}
           onClick={() => {
             scrollTo("#emailSection")

@@ -77,30 +77,38 @@ const Contact = () => {
               </IconAndInfo>
             </LinksWrapper>
           </LinksSection>
-          <ContactSection>
-            <ContactForm>
-              <FormControl>
-                <InputLabel>Name</InputLabel>
-                <CardInput type="text" required />
-              </FormControl>
-              {/* <FormControl>
+          <form
+            action="https://formsubmit.co/ayush.singh.96@gmail.com"
+            method="POST"
+          >
+            <ContactSection>
+              <ContactForm>
+                <FormControl>
+                  <InputLabel>Name</InputLabel>
+                  <CardInput type="text" name="name" required />
+                </FormControl>
+                {/* <FormControl>
                 <InputLabel>Last Name</InputLabel>
                 <CardInput placeholder="Doe" type="text" required />
               </FormControl> */}
-              <FormControl>
-                <InputLabel>Email</InputLabel>
-                <CardInput type="text" required />
-              </FormControl>
-              <FormControl>
-                <InputLabel>Mobile No.</InputLabel>
-                <CardInput type="text" required />
-              </FormControl>
-            </ContactForm>
-            <MessageSection>
-              <Message rows={5} placeholder="Your query goes here..."></Message>
-            </MessageSection>
-            <SubmitButton>Submit</SubmitButton>
-          </ContactSection>
+                <FormControl>
+                  <InputLabel>Email</InputLabel>
+                  <CardInput type="text" name="email" required />
+                </FormControl>
+                <FormControl>
+                  <InputLabel>Mobile No.</InputLabel>
+                  <CardInput type="text" name="mobile" required />
+                </FormControl>
+              </ContactForm>
+              <MessageSection>
+                <Message
+                  rows={5}
+                  placeholder="Your query goes here..."
+                ></Message>
+              </MessageSection>
+              <SubmitButton>Submit</SubmitButton>
+            </ContactSection>
+          </form>
         </Card>
       </Container>
     </Layout>
@@ -134,7 +142,7 @@ const Card = styled.div`
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.05), 0 0px 40px rgba(0, 0, 0, 0.08);
   display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   min-height: 100px;
 `
 
