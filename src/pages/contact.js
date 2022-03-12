@@ -102,12 +102,16 @@ const Contact = () => {
               </ContactForm>
               <MessageSection>
                 <Message
+                  name="query"
                   rows={5}
                   placeholder="Your query goes here..."
                 ></Message>
               </MessageSection>
               <SubmitButton>Submit</SubmitButton>
             </ContactSection>
+            <input type="hidden" name="_next" value="https://vmh-travel.netlify.app/thankyou"></input>
+            <input type="hidden" name="_subject" value="New Contact us submission"></input>
+            <input type="hidden" name="_template" value="box"></input>
           </form>
         </Card>
       </Container>

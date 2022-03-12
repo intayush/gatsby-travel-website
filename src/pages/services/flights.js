@@ -1,5 +1,4 @@
 import React from "react"
-import { navigate } from "gatsby"
 import styled from "styled-components"
 import { StaticImage } from "gatsby-plugin-image"
 
@@ -12,14 +11,30 @@ const Flights = () => {
   return (
     <Layout>
       <GlobalStyle />
-      <Seo title="Contact Us" />
+      <Seo title="Services | Flights" />
       <Container>
         <Card>
           <LinksSection>
-            <ContactInformationTitle></ContactInformationTitle>
+            <ContactInformationTitle>
+              <StaticImage
+                src="../../assets/svg/flight_white.svg"
+                height={60}
+                alt=""
+                placeholder="tracedSVG"
+                objectFit="contain"
+              />
+              <span
+                style={{
+                  marginLeft: 20,
+                  fontSize: 40,
+                }}
+              >
+                Flight Booking
+              </span>
+            </ContactInformationTitle>
             <p>
-              Fill up the form and our team will get back to you to resolve your
-              queries
+              Fill up the form and our team will get back to you to discuss your
+              flight booking
             </p>
             <LinksWrapper>
               <IconAndInfo>
@@ -91,9 +106,12 @@ const Flights = () => {
                 <CardInput type="text" required />
               </FormControl>
             </ContactForm>
-            <MessageSection>
+            {/* <MessageSection>
               <Message rows={5} placeholder="Your query goes here..."></Message>
-            </MessageSection>
+            </MessageSection> */}
+            <input type="hidden" name="_next" value="https://vmh-travel.netlify.app/thankyou"></input>
+            <input type="hidden" name="_subject" value="New Flight Booking Request"></input>
+            <input type="hidden" name="_template" value="box"></input>
             <SubmitButton>Submit</SubmitButton>
           </ContactSection>
         </Card>
@@ -150,7 +168,9 @@ const ContactSection = styled.div`
   padding-right: 36px;
 `
 
-const ContactInformationTitle = styled.h1`
+const ContactInformationTitle = styled.div`
+  display: flex;
+  align-items: center;
   margin-bottom: 16px;
   font-size: 36px;
 `

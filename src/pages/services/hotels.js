@@ -1,5 +1,4 @@
 import React from "react"
-import { navigate } from "gatsby"
 import styled from "styled-components"
 import { StaticImage } from "gatsby-plugin-image"
 
@@ -12,24 +11,33 @@ const Hotels = () => {
   return (
     <Layout>
       <GlobalStyle />
-      <Seo title="Contact Us" />
+      <Seo title="Services | Hotels" />
       <Container>
         <Card>
           <LinksSection>
-            <ContactInformationTitle></ContactInformationTitle>
+            <ContactInformationTitle>
+              <StaticImage
+                src="../../assets/svg/hotel_white.svg"
+                height={60}
+                alt=""
+                placeholder="tracedSVG"
+                objectFit="contain"
+              />
+              <span
+                style={{
+                  marginLeft: 20,
+                  fontSize: 40,
+                }}
+              >
+                Hotel Booking
+              </span>
+            </ContactInformationTitle>
             <p>
-              Fill up the form and our team will get back to you to resolve your
-              queries
+              Fill up the form and our team will get back to you to discuss your
+              hotel booking
             </p>
             <LinksWrapper>
               <IconAndInfo>
-                <StaticImage
-                  src={`../assets/svg/phone.svg`}
-                  height={30}
-                  alt=""
-                  placeholder="tracedSVG"
-                  objectFit="contain"
-                />
                 <span
                   style={{
                     marginLeft: 10,
@@ -91,9 +99,20 @@ const Hotels = () => {
                 <CardInput type="text" required />
               </FormControl>
             </ContactForm>
-            <MessageSection>
+            {/* <MessageSection>
               <Message rows={5} placeholder="Your query goes here..."></Message>
-            </MessageSection>
+            </MessageSection> */}
+            <input
+              type="hidden"
+              name="_next"
+              value="https://vmh-travel.netlify.app/thankyou"
+            ></input>
+            <input
+              type="hidden"
+              name="_subject"
+              value="New Cab Hotel Request"
+            ></input>
+            <input type="hidden" name="_template" value="box"></input>
             <SubmitButton>Submit</SubmitButton>
           </ContactSection>
         </Card>
@@ -150,7 +169,9 @@ const ContactSection = styled.div`
   padding-right: 36px;
 `
 
-const ContactInformationTitle = styled.h1`
+const ContactInformationTitle = styled.div`
+  display: flex;
+  align-items: center;
   margin-bottom: 16px;
   font-size: 36px;
 `
