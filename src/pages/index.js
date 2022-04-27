@@ -1,6 +1,8 @@
-import React, { useRef } from "react"
+import React, { useRef, useEffect } from "react"
 import Loadable from "react-loadable"
 import styled from "styled-components"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 import Seo from "../components/seo"
 import Layout from "../components/layout"
@@ -41,10 +43,22 @@ const IndexPage = () => {
   const isInternationalTripsAboutToBeVisible = useInView(internationalTripsRef)
   const isTestimonialsAboutToBeVisible = useInView(testimonialsRef)
   //const isEmailSectionAboutToBeVisible = useInView(emailSectionRef)
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    if (params.get("submit")) {
+      toast(
+        "Your response has been recorded our team will reach out to you shortly",
+        {
+          type: "success",
+        }
+      )
+    }
+  }, [])
 
   return (
     <Layout>
       <Seo title="Home" />
+      <ToastContainer position="top-right" />
       <Content>
         <Button
           onClick={() => {
@@ -94,7 +108,7 @@ const IndexPage = () => {
           )} */}
         </div>
         <Section id="carousel">
-            <LoadableInterNationalTrips />
+          <LoadableInterNationalTrips />
         </Section>
         <div ref={emailSectionRef} className="intersection">
           {/* {!isEmailSectionAboutToBeVisible && (

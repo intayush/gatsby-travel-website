@@ -25,7 +25,7 @@ const Email = () => {
         </Circle>
         <Circle
           onClick={() => {
-            navigate("/services/flights")
+            navigate("/services/hotels")
           }}
         >
           <StaticImage
@@ -39,7 +39,7 @@ const Email = () => {
         </Circle>
         <Circle
           onClick={() => {
-            navigate("/services/hotels")
+            navigate("/services/cabs")
           }}
         >
           <StaticImage

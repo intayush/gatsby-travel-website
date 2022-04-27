@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import useCollapse from "react-collapsed"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -21,6 +21,7 @@ const CollapsibleItinerary = ({
   duration,
   defaultExpanded = false,
   collapsedHeight = 0,
+  setIsOpen,
 }) => {
   const config = {
     defaultExpanded,
@@ -31,7 +32,37 @@ const CollapsibleItinerary = ({
   return (
     <ItineraryContainer>
       <ItineraryHeading {...getToggleProps()}>
-        {heading} {duration}
+        <ItinerarySubHeading>
+          {heading} {duration}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              marginLeft: 20,
+            }}
+          >
+            {isExpanded ? (
+              <StaticImage
+                src="../assets/svg/up.svg"
+                height={30}
+                alt=""
+                placeholder="tracedSVG"
+                objectFit="contain"
+              />
+            ) : (
+              <StaticImage
+                src="../assets/svg/dropdown.svg"
+                height={30}
+                alt=""
+                placeholder="tracedSVG"
+                objectFit="contain"
+              />
+            )}
+          </div>
+        </ItinerarySubHeading>
+        <Button round="true" primary={true} onClick={() => setIsOpen(true)}>
+          Book Now
+        </Button>
       </ItineraryHeading>
       <ItineraryWrapper {...getCollapseProps()}>
         <ItineraryList>
@@ -93,8 +124,6 @@ const Trip = ({ data }) => {
   }
 
   const { node } = data.allDestinationsJson.edges[0]
-
-  console.log(node)
 
   const whatToExpectImage = getImage(
     node.whatToExpectImage.childImageSharp.gatsbyImageData
@@ -158,7 +187,18 @@ const Trip = ({ data }) => {
       {itinerary.length === 1 && (
         <Itinerary>
           <ItineraryContainer>
-            <ItineraryHeading>Itinerary - {node.duration[0]}</ItineraryHeading>
+            <ItineraryHeading>
+              <ItinerarySubHeading>
+                Itinerary - {node.duration[0]}
+              </ItinerarySubHeading>
+              <Button
+                round="true"
+                primary={true}
+                onClick={() => setIsOpen(true)}
+              >
+                Book Now
+              </Button>
+            </ItineraryHeading>
             <ItineraryWrapper>
               <ItineraryList>
                 {itinerary[0].map((it, idx) => (
@@ -180,6 +220,7 @@ const Trip = ({ data }) => {
             heading={`Itinerary`}
             duration={node.duration[index]}
             itinerary={it}
+            setIsOpen={setIsOpen}
           />
         ))}
       <Gallery>
@@ -201,10 +242,10 @@ const Trip = ({ data }) => {
         <Modal
           isVisible={isOpen}
           title="Book Now"
-          content={<BookNow />}
+          content={<BookNow location={node.name} />}
           footer={
             <Button
-              to="/trip"
+              type="submit"
               primary="true"
               round="true"
               css={`
@@ -453,11 +494,26 @@ const ItemTitle = styled.div`
 `
 
 const ItineraryHeading = styled.h3`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4rem;
+  flex-wrap: wrap;
+  gap: 11px;
+`
+
+const ItinerarySubHeading = styled.h3`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-family: "Sacramento";
   font-size: 70px;
   color: white;
-  padding: 1rem 4rem;
   cursor: pointer;
+
+  @media screen and (max-width: 786px) {
+    font-size: 45px;
+  }
 `
 
 const Gallery = styled.div`

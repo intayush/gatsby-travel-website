@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
-import { GrClose } from "react-icons/gr";
+import { GrClose } from "react-icons/gr"
 
 const Modal = ({ isVisible = false, title, content, footer, onClose }) => {
   const keydownHandler = ({ key }) => {
@@ -19,14 +19,21 @@ const Modal = ({ isVisible = false, title, content, footer, onClose }) => {
   return !isVisible ? null : (
     <ModalWrapper onClick={onClose}>
       <ModalDialog onClick={e => e.stopPropagation()}>
-        <ModalHeader>
-          <ModalTitle>{title}</ModalTitle>
-          <ModalClose onClick={onClose}><GrClose /></ModalClose>
-        </ModalHeader>
-        <ModalBody>
-          <ModalContent>{content}</ModalContent>
-        </ModalBody>
-        {footer && <ModalFooter>{footer}</ModalFooter>}
+        <form
+          action="https://formsubmit.co/ayush.singh.96@gmail.com"
+          method="POST"
+        >
+          <ModalHeader>
+            <ModalTitle>{title}</ModalTitle>
+            <ModalClose onClick={onClose}>
+              <GrClose />
+            </ModalClose>
+          </ModalHeader>
+          <ModalBody>
+            <ModalContent>{content}</ModalContent>
+          </ModalBody>
+          {footer && <ModalFooter>{footer}</ModalFooter>}
+        </form>
       </ModalDialog>
     </ModalWrapper>
   )
@@ -104,7 +111,7 @@ const ModalFooter = styled.div`
 `
 
 const ModalTitle = styled.h3`
-font-weight: 400;
+  font-weight: 400;
 `
 
 const ModalClose = styled.span`

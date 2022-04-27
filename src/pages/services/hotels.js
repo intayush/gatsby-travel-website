@@ -59,7 +59,7 @@ const Hotels = () => {
                     marginLeft: 10,
                   }}
                 >
-                  info@vmh.com
+                  info@vacationmantraholidays.com
                 </span>
               </IconAndInfo>
               <IconAndInfo>
@@ -88,7 +88,7 @@ const Hotels = () => {
               <ContactForm>
                 <FormControl>
                   <InputLabel>Name</InputLabel>
-                  <CardInput type="text" required />
+                  <CardInput type="text" name="Name" required />
                 </FormControl>
                 {/* <FormControl>
                 <InputLabel>Last Name</InputLabel>
@@ -96,11 +96,11 @@ const Hotels = () => {
               </FormControl> */}
                 <FormControl>
                   <InputLabel>Email</InputLabel>
-                  <CardInput type="text" required />
+                  <CardInput type="text" name="Email" required />
                 </FormControl>
                 <FormControl>
                   <InputLabel>Mobile No.</InputLabel>
-                  <CardInput type="text" required />
+                  <CardInput type="text" name="Mobile Number" required />
                 </FormControl>
               </ContactForm>
               {/* <MessageSection>
@@ -109,7 +109,7 @@ const Hotels = () => {
               <input
                 type="hidden"
                 name="_next"
-                value="https://vmh-travel.netlify.app/thankyou"
+                value="https://vmh-travel.netlify.app?submit=1"
               ></input>
               <input
                 type="hidden"

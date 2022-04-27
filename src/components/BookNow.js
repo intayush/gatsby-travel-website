@@ -1,27 +1,39 @@
 import React from "react"
 import styled from "styled-components"
 
-const BookNow = () => {
+const BookNow = ({ location }) => {
   return (
     <FormWrapper>
       <Group>
-        <Input name="name" type="text" required />
+        <Input name="Name" type="text" required />
         <Highlight className="highlight" />
         <Bar className="bar" />
         <Label for="name">Name</Label>
       </Group>
       <Group>
-        <Input name="contact" type="text" required />
+        <Input name="Contact Number" type="text" required />
         <Highlight className="highlight" />
         <Bar className="bar" />
         <Label for="contact">Contact Number</Label>
       </Group>
       <Group>
-        <Input name="email" type="email" required />
+        <Input name="Email" type="email" required />
         <Highlight className="highlight" />
         <Bar className="bar" />
         <Label for="email">Email Id</Label>
       </Group>
+      <input type="hidden" name="Destination" value={location} />
+      <input
+        type="hidden"
+        name="_next"
+        value="https://vmh-travel.netlify.app?submit=1"
+      ></input>
+      <input
+        type="hidden"
+        name="_subject"
+        value={`Booking request for ${location}`}
+      ></input>
+      <input type="hidden" name="_template" value="box"></input>
     </FormWrapper>
   )
 }
@@ -37,7 +49,7 @@ const Input = styled.input`
   display: block;
   width: 100%;
   border: none;
-  border-bottom: ${({theme}) => `1px solid ${theme.color.primary}`};
+  border-bottom: ${({ theme }) => `1px solid ${theme.color.primary}`};
 
   :focus {
     outline: none;
@@ -47,7 +59,7 @@ const Input = styled.input`
   :valid ~ label {
     top: -20px;
     font-size: 14px;
-    color: ${({theme}) => theme.color.primary};
+    color: ${({ theme }) => theme.color.primary};
   }
 
   :focus ~ .bar:before,
@@ -63,7 +75,7 @@ const Input = styled.input`
 
   @-webkit-keyframes inputHighlighter {
     from {
-      background: ${({theme}) => theme.color.primary};
+      background: ${({ theme }) => theme.color.primary};
     }
     to {
       width: 0;
@@ -72,7 +84,7 @@ const Input = styled.input`
   }
   @-moz-keyframes inputHighlighter {
     from {
-      background: ${({theme}) => theme.color.primary};
+      background: ${({ theme }) => theme.color.primary};
     }
     to {
       width: 0;
@@ -81,7 +93,7 @@ const Input = styled.input`
   }
   @keyframes inputHighlighter {
     from {
-      background: ${({theme}) => theme.color.primary};
+      background: ${({ theme }) => theme.color.primary};
     }
     to {
       width: 0;
@@ -91,7 +103,7 @@ const Input = styled.input`
 `
 
 const Label = styled.label`
-  color: ${({theme}) => theme.color.primary};
+  color: ${({ theme }) => theme.color.primary};
   font-size: 18px;
   font-weight: normal;
   position: absolute;
@@ -123,7 +135,7 @@ const Bar = styled.span`
     width: 0;
     bottom: 1px;
     position: absolute;
-    background: ${({theme}) => theme.color.primary};
+    background: ${({ theme }) => theme.color.primary};
     transition: 0.2s ease all;
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;
@@ -135,7 +147,7 @@ const Bar = styled.span`
     width: 0;
     bottom: 1px;
     position: absolute;
-    background: ${({theme}) => theme.color.primary};
+    background: ${({ theme }) => theme.color.primary};
     transition: 0.2s ease all;
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;
