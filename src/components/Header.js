@@ -17,7 +17,14 @@ const Header = ({ currentTheme }) => {
   }
 
   const goToHome = () => {
-    navigate(`/`)
+    return navigate(`/`)
+  }
+
+  const goToServices = () => {
+    navigate("/#emailSection")
+    // .then(() => {
+    //   scrollTo("#emailSection")
+    // })
   }
 
   const changeNav = () => {
@@ -76,7 +83,11 @@ const Header = ({ currentTheme }) => {
         <NormalLink
           active={scroll}
           onClick={() => {
-            scrollTo("#emailSection")
+            if (window.location.pathname === "/") {
+              scrollTo("#emailSection")
+            } else {
+              goToServices()
+            }
           }}
         >
           {Icons[1]}

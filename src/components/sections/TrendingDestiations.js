@@ -27,8 +27,6 @@ const TrendingDestinations = () => {
     }
   `)
 
-  console.log(data);
-
   return (
     <Gallery
       title="Trending National Destinations"

@@ -24,7 +24,7 @@ const Footer = ({ themeChangeHandler }) => {
         <FooterLinkItems>
           <FooterLinkTitle>Contact Us</FooterLinkTitle>
           <FooterLink to="/contact">Contact Us</FooterLink>
-          <FooterLink to="/destinations">Destinations</FooterLink>
+          <FooterLink to="/#trips">Destinations</FooterLink>
           <FooterLink to="/about">About</FooterLink>
         </FooterLinkItems>
         <SocialIcons>

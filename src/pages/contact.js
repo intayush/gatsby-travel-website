@@ -40,7 +40,7 @@ const Contact = () => {
                     marginLeft: 10,
                   }}
                 >
-                  +91 77601 94184
+                  +91 8299469482
                 </span>
               </IconAndInfo>
               <IconAndInfo>
@@ -56,7 +56,7 @@ const Contact = () => {
                     marginLeft: 10,
                   }}
                 >
-                  info@vmh.com
+                  info@vacationmantraholidays.com
                 </span>
               </IconAndInfo>
               <IconAndInfo>

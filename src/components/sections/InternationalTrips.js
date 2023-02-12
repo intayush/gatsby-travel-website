@@ -10,6 +10,7 @@ const InternationalTrips = () => {
           node {
             name
             alt
+            route
             img {
               childrenImageSharp {
                 # gatsbyImageData(

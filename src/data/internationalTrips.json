@@ -2,27 +2,32 @@
     {
       "img": "../assets/images/iceland.jpg",
       "alt": "Iceland",
-      "name": "Iceland"
+      "name": "Iceland",
+      "route": "iceland"
     },
     {
       "img": "../assets/images/japan.jpg",
       "alt": "Japan",
-      "name": "Japan"
+      "name": "Japan",
+      "route": "japan"
     },
     {
       "img": "../assets/images/italy.jpg",
       "alt": "Italy",
-      "name": "Italy"
+      "name": "Italy",
+      "route": "italy"
     },
     {
       "img": "../assets/images/london.jpg",
       "alt": "London",
-      "name": "London"
+      "name": "London",
+      "route": "london"
     },
     {
       "img": "../assets/images/switzerland.jpg",
       "alt": "Switzerland",
-      "name": "Switzerland"
+      "name": "Switzerland",
+      "route": "switzerland"
     }
   ]
   

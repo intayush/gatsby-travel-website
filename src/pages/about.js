@@ -63,7 +63,7 @@ const AboutUs = () => {
             primary="true"
             round="true"
             css={`
-              height: 60px;
+              height: 50px;
               font-size: 24px;
 
               @media screen and (max-width: 786px) {
@@ -90,7 +90,7 @@ const Container = styled.div`
 `
 
 const Heading = styled.h1`
-  font-size: clamp(1.5rem, 10vw, 90px);
+  font-size: clamp(1.3rem, 9vw, 80px);
   font-family: "Enriqueta";
   font-weight: 100;
   text-align: center;
@@ -106,7 +106,7 @@ const Content = styled.div`
 `
 
 const TextContainer = styled.p`
-  font-size: clamp(0.5rem, 2vw, 28px);
+  font-size: clamp(0.5rem, 1.5vw, 25px);
   line-height: 1.5;
   color: white;
   font-weight: 100;

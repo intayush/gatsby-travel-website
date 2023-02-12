@@ -199,5 +199,52 @@
         }
       ]
     ]
+  },
+  {
+    "slug": "london",
+    "name": "London",
+    "bigImage": "../assets/images/destinations/banglore/bigImage.jpg",
+    "whatToExpectContent": "Picturesque and enchanting, Kashmir is cradled high in the lofty green Himalayas and hailed all over the world for its incredible natural beauty. Surrounded by mountain peaks, lush green valleys, glistening lakes, temples and spectacular Mughal-era gardens, it has inspired poets through centuries.",
+    "whatToExpectImage": "../assets/images/destinations/banglore/whatToExpectImage.jpg",
+    "gallery": [
+      "../assets/images/destinations/banglore/1.jpg",
+      "../assets/images/destinations/banglore/2.png",
+      "../assets/images/destinations/banglore/3.jpg",
+      "../assets/images/destinations/banglore/4.jpg",
+      "../assets/images/destinations/banglore/5.jpg"
+    ],
+    "duration": ["5 nights 6 days"],
+    "itinerary": [
+      [
+        {
+          "heading": "Day 1: Bangalore Sightseeing",
+          "description": "On arrival to Bangalore pick up from Airport / Railway Station and transfer to Hotel. After fresh-up start Bangalore sightseeing – visit Iskcon Temple, Bull Temple, Tipu Sultan Palace, Lalbagh Botanical Garden, Vishveshwarya Technological Museum, Art Gallery, Cubbon Park, Vidhana Soudha (outside view), MG Road, and Indira Gandhi Musical Fountain Park. Overnight stay in Bangalore."
+        },
+        {
+          "heading": "Day 2: Bangalore to Mysore (Approx. 3 hr 42 min (143.8 km))",
+          "description": "After breakfast check out from hotel and proceed to Mysore. En-route halt at Srirangapatna, visit Sri Ranganathaswamy Temple, Tippu's Summer Palace, Srirangapatna Fort and Gumbuz. Proceed to Mysore, on arrival visit Chamundi Hills to pay your obeisance to Goddess Chamundeshwari. On the way back to the city you will see the Statue of Mahishasura and Nandi. Later visit the Mysore Zoo, one of the oldest and well-maintained zoos in India. And after visit the Mysore Palace museum and St. Philomena's Church. Later drive to Brindavan Gardens a show garden that has a botanical park with fountains as well as a musical fountain. Drive back to Mysore. Overnight stay in Mysore Hotel."
+        },
+        {
+          "heading": "Day 3: Mysore to Ooty (Approx. 3 hr. 10 min (125.0 km)",
+          "description": "After breakfast check out and proceed to Ooty. En-route pass by Bandipur National Forest, visit Pykara dam & Houseboat. On arrival to Ooty check into the hotel. After lunch goes for Ooty sightseeing - Rose Garden, Ooty Lake, and Botanical Garden. Overnight stay at Ooty."
+        },
+        {
+          "heading": "Day 4: Ooty & Coonoor Sightseeing",
+          "description": "After breakfast, proceed to Coonoor by Train. Cab will reach by road and take you for Coonoor Sightseeing - Sim’s Park, Lam’s Rock, Dolphin Nose, and Ketti Valley view. Back in Ooty visit the Tea factory, Tea Museum, and Doddabetta Peak. Overnight stay at Ooty."
+        },
+        {
+          "heading": "Day 5: Ooty to Coorg Sightseeing (Approx. 5 hr 41 min (245.9 km))",
+          "description": "After breakfast check out and proceed to Coorg. En-route visit Bylakuppe - the largest Tibetan settlement in South India and is famous for Tibetian Golden Temple. On arrival check in to the hotel. Evening visit Raja's Seat. Overnight stay at Coorg."
+        },
+        {
+          "heading": "Day 6: Coorg Sightseeing",
+          "description": "After breakfast proceeds to Talakaveri - the birthplace of river Cauvery, en-route visit Bhagamandala Bhagandeshwara Temple, and Triveni Sangama. After returning to Madikeri visit Abbey Falls, Madikeri Fort, and Omkareshwar Temple. Overnight stay at Coorg."
+        },
+        {
+          "heading": "Day 7: Coorg to Bangalore /Departure (Approx. 5 hr 53 min (248.1 km))",
+          "description": "After breakfast, proceed to Bangalore. En-route, visit Dubare Elephant Camp, an elephant training camp on the banks of the River Kaveri where bathing and feeding are done. Visitors can also participate in various activities like washing and scrubbing elephants. A ride on the elephant would be the cream of all the experience in Dubare Elephant Camp. And Later Kaveri Nisargadhama an island formed by the river Cauvery. Continue to Bangalore, on arrival get transferred to Bangalore Airport / Railway Station / Bus Stand."
+        }
+      ]
+    ]
   }
 ]

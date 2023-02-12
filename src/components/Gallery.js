@@ -52,6 +52,7 @@ const Gallery = ({ data, title }) => {
                     </TextWrap>
                     <Button
                       onClick={() => {
+                        console.log(item);
                         navigate(item.node.route)
                       }}
                       //to="/trips"

@@ -103,3 +103,30 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 Gatsby Cloud is an end-to-end cloud platform specifically built for the Gatsby framework that combines a modern developer experience with an optimized, global edge network.
 
 <!-- AUTO-GENERATED-CONTENT:END -->
+
+
+1. About us half cut -> Done
+2. about us/trip destination to services not opening -> Done
+3. International trip visit button not working as exected -> Done (need data for all international destination)
+4. Testimonial to update -> need data
+5. Destination page under contact us not working -> done
+6. Facebook button landing to insta page -> need link
+
+
+1. Remove bangalore and update coorg/ooty
+2. Kashmir
+
+International
+
+1. Bali
+2. Maldives
+3. Dubai
+4. Switzerland
+5. Paris
+6. Vietnam
+
+On top Right -  Customize package button and contact number
+
+
+info@vacationmantraholidays.com
+Icon - +91 8299469482
