@@ -137,9 +137,9 @@ const IndexPage = () => {
             </svg>
           )} */}
         </div>
-        <Section id="emailSection">
+        {/* <Section id="emailSection">
           <LoadableEmailSection />
-        </Section>
+        </Section> */}
         <div ref={testimonialsRef} className="intersection">
           {!isTestimonialsAboutToBeVisible && (
             <svg

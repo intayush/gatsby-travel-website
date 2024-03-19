@@ -1,11 +1,11 @@
 export const MenuData = [
     {
-        title: "About",
-        link: "/about"
+        title: "Destinations",
+        link: "/#trips"
     },
     {
-        title: "Services",
-        link: "/#emailSection"
+        title: "About",
+        link: "/about"
     },
     {
         title: "Contact Us",

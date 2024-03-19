@@ -6,6 +6,7 @@ import { FaBars } from "react-icons/fa"
 import { MenuData } from "../data/MenuData"
 import Icons from "../data/MenuIcons"
 import MobileMenu from "./MobileMenu"
+import Button from "../components/generic/Button";
 
 const Header = ({ currentTheme }) => {
   const ref = useRef(null)
@@ -20,24 +21,25 @@ const Header = ({ currentTheme }) => {
     navigate(`/`)
   }
 
-  const changeNav = () => {
-    if (window.scrollY >= 100) {
-      setScroll(true)
-      if (ref.current) {
-        ref.current.style.height = "60px"
-      }
-    } else {
-      if (ref.current) {
-        ref.current.style.height = "80px"
-      }
-      setScroll(false)
-    }
-  }
+  // const changeNav = () => {
+  //   if (window.scrollY >= 100) {
+  //     setScroll(true)
+  //     if (ref.current) {
+  //       ref.current.style.height = "60px"
+  //     }
+  //   } else {
+  //     if (ref.current) {
+  //       ref.current.style.height = "80px"
+  //     }
+  //     setScroll(false)
+  //   }
+  // }
 
-  useEffect(() => {
-    changeNav()
-    window.addEventListener("scroll", changeNav)
-  }, [])
+  // useEffect(() => {
+  //   changeNav()
+  //   window.addEventListener("scroll", changeNav)
+  // }, [])
+
   return (
     <Nav active={scroll ? true : false} id="topNav" ref={ref}>
       <MobileMenu isOpen={isOpen} closeMenu={menuCloseHandler} />
@@ -61,23 +63,34 @@ const Header = ({ currentTheme }) => {
       <NavMenu>
         {MenuData.map((item, key) => {
           return (
-            <NavLink key={`navitem_${key}`} href="/" active={scroll}>
+            <NavLink key={`navitem_${key}`} href={item.link} active={scroll}>
               {Icons[key]}
               {item.title}
             </NavLink>
           )
         })}
       </NavMenu>
+      <Right>
+      <ContactInfo>
+        <span>
+          Email: info@vacationmantraholidays.com
+        </span>
+        <span>
+          Phone Number: +91 8299469482
+        </span>
+      </ContactInfo>
+      <Button round={true}>Pay Now</Button>
+      </Right>
     </Nav>
+
   )
 }
 
 export default Header
 
 const Nav = styled.nav`
-  background: ${({ active, theme }) =>
-    active ? theme.background.secondary : "transparent"};
-  height: 80px;
+  background: ${({ theme }) => theme.background.secondary};
+  height: 60px;
   display: flex;
   padding: 0.5rem;
   z-index: 100;
@@ -86,15 +99,15 @@ const Nav = styled.nav`
   transition: 0.8s all ease;
 
   @media screen and (max-width: 960px) {
-    background: ${({ active, theme }) =>
-      active ? theme.background.secondary : "transparent"};
+    background: ${({ theme }) => theme.background.secondary};
     transition: 0.8s all ease;
   }
 `
 
 const NavLink = styled.a`
-  color: ${({ active, theme }) => (active ? theme.color.primary : "#ffffff")};
+  color: ${({ theme }) => theme.color.primary};
   display: flex;
+  justify-content: center;
   align-items: center;
   text-decoration: none;
   padding: 0 4rem;
@@ -102,15 +115,27 @@ const NavLink = styled.a`
   cursor: pointer;
 
   @media screen and (max-width: 960px) {
-    background: ${({ active, theme }) =>
-      active ? theme.background.secondary : "transparent"};
+    background: ${({ theme }) => theme.background.secondary};
     transition: 0.8s all ease;
   }
 `
 
+const ContactInfo = styled.div`
+  color: ${({ theme }) => theme.color.primary};
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 16px;
+`
+
+const Right = styled.div`
+  display: flex;
+  gap: 16px;
+`
+
 const Bars = styled(FaBars)`
   display: none;
-  color: ${({ $active, theme }) => ($active ? theme.color.primary : "#ffffff")};
+  color: ${({ theme }) => theme.color.primary};
   transition: 0.8s all ease;
   @media screen and (max-width: 768px) {
     display: block;
@@ -125,8 +150,6 @@ const Bars = styled(FaBars)`
 const NavMenu = styled.div`
   flex: 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
   @media screen and (max-width: 786px) {
     display: none;
   }
