@@ -1,45 +1,50 @@
 import React, { useState, useEffect, useRef } from "react"
-import { navigate } from "gatsby"
+import { navigate, Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { FaBars } from "react-icons/fa"
 import { MenuData } from "../data/MenuData"
 import Icons from "../data/MenuIcons"
 import MobileMenu from "./MobileMenu"
-import Button from "../components/generic/Button";
+import scrollTo from "gatsby-plugin-smoothscroll"
 
 const Header = ({ currentTheme }) => {
   const ref = useRef(null)
   const [scroll, setScroll] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
-
   const menuCloseHandler = () => {
     setIsOpen(false)
   }
 
   const goToHome = () => {
-    navigate(`/`)
+    return navigate(`/`)
   }
 
-  // const changeNav = () => {
-  //   if (window.scrollY >= 100) {
-  //     setScroll(true)
-  //     if (ref.current) {
-  //       ref.current.style.height = "60px"
-  //     }
-  //   } else {
-  //     if (ref.current) {
-  //       ref.current.style.height = "80px"
-  //     }
-  //     setScroll(false)
-  //   }
-  // }
+  const goToServices = () => {
+    navigate("/#emailSection")
+    // .then(() => {
+    //   scrollTo("#emailSection")
+    // })
+  }
 
-  // useEffect(() => {
-  //   changeNav()
-  //   window.addEventListener("scroll", changeNav)
-  // }, [])
+  const changeNav = () => {
+    if (window.scrollY >= 100) {
+      setScroll(true)
+      if (ref.current) {
+        ref.current.style.height = "60px"
+      }
+    } else {
+      if (ref.current) {
+        ref.current.style.height = "80px"
+      }
+      setScroll(false)
+    }
+  }
 
+  useEffect(() => {
+    changeNav()
+    window.addEventListener("scroll", changeNav)
+  }, [])
   return (
     <Nav active={scroll ? true : false} id="topNav" ref={ref}>
       <MobileMenu isOpen={isOpen} closeMenu={menuCloseHandler} />
@@ -52,6 +57,8 @@ const Header = ({ currentTheme }) => {
         onClick={goToHome}
         style={{
           cursor: "pointer",
+          position: "absolute",
+          height: "80%",
         }}
       />
       <Bars
@@ -61,36 +68,46 @@ const Header = ({ currentTheme }) => {
         }}
       />
       <NavMenu>
-        {MenuData.map((item, key) => {
+        {/* {MenuData.map((item, key) => {
           return (
-            <NavLink key={`navitem_${key}`} href={item.link} active={scroll}>
+            <NavLink key={`navitem_${key}`} to={item.link} active={scroll}>
               {Icons[key]}
               {item.title}
             </NavLink>
           )
-        })}
+        })} */}
+        <NavLink to={"/about"} active={scroll}>
+          {Icons[0]}
+          About
+        </NavLink>
+        <NormalLink
+          active={scroll}
+          onClick={() => {
+            if (window.location.pathname === "/") {
+              scrollTo("#emailSection")
+            } else {
+              goToServices()
+            }
+          }}
+        >
+          {Icons[1]}
+          Services
+        </NormalLink>
+        <NavLink to="/contact" active={scroll}>
+          {Icons[2]}
+          Contact
+        </NavLink>
       </NavMenu>
-      <Right>
-      <ContactInfo>
-        <span>
-          Email: info@vacationmantraholidays.com
-        </span>
-        <span>
-          Phone Number: +91 8299469482
-        </span>
-      </ContactInfo>
-      <Button round={true}>Pay Now</Button>
-      </Right>
     </Nav>
-
   )
 }
 
 export default Header
 
 const Nav = styled.nav`
-  background: ${({ theme }) => theme.background.secondary};
-  height: 60px;
+  background: ${({ active, theme }) =>
+    active ? theme.background.secondary : "transparent"};
+  height: 80px;
   display: flex;
   padding: 0.5rem;
   z-index: 100;
@@ -99,15 +116,15 @@ const Nav = styled.nav`
   transition: 0.8s all ease;
 
   @media screen and (max-width: 960px) {
-    background: ${({ theme }) => theme.background.secondary};
+    background: ${({ active, theme }) =>
+      active ? theme.background.secondary : "transparent"};
     transition: 0.8s all ease;
   }
 `
 
-const NavLink = styled.a`
-  color: ${({ theme }) => theme.color.primary};
+const NavLink = styled(Link)`
+  color: ${({ active, theme }) => (active ? theme.color.primary : "#ffffff")};
   display: flex;
-  justify-content: center;
   align-items: center;
   text-decoration: none;
   padding: 0 4rem;
@@ -115,27 +132,31 @@ const NavLink = styled.a`
   cursor: pointer;
 
   @media screen and (max-width: 960px) {
-    background: ${({ theme }) => theme.background.secondary};
+    background: ${({ active, theme }) =>
+      active ? theme.background.secondary : "transparent"};
     transition: 0.8s all ease;
   }
 `
 
-const ContactInfo = styled.div`
-  color: ${({ theme }) => theme.color.primary};
+const NormalLink = styled.a`
+  color: ${({ active, theme }) => (active ? theme.color.primary : "#ffffff")};
   display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-size: 16px;
-`
+  align-items: center;
+  text-decoration: none;
+  padding: 0 4rem;
+  height: 100%;
+  cursor: pointer;
 
-const Right = styled.div`
-  display: flex;
-  gap: 16px;
+  @media screen and (max-width: 960px) {
+    background: ${({ active, theme }) =>
+      active ? theme.background.secondary : "transparent"};
+    transition: 0.8s all ease;
+  }
 `
 
 const Bars = styled(FaBars)`
   display: none;
-  color: ${({ theme }) => theme.color.primary};
+  color: ${({ $active, theme }) => ($active ? theme.color.primary : "#ffffff")};
   transition: 0.8s all ease;
   @media screen and (max-width: 768px) {
     display: block;
@@ -150,6 +171,8 @@ const Bars = styled(FaBars)`
 const NavMenu = styled.div`
   flex: 1;
   display: flex;
+  align-items: center;
+  justify-content: center;
   @media screen and (max-width: 786px) {
     display: none;
   }

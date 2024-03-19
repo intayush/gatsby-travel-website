@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet"
 import { ThemeProvider } from "styled-components"
 import { GlobalStyle } from "../components/styles/GlobalStyles"
 import { lightTheme, darkTheme } from "../components/styles/theme"
-import Header from "./Header"
+import Header from "./header"
 import Footer from "./Footer"
 
 const Layout = ({ children }) => {
