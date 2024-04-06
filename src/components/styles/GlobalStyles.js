@@ -88,4 +88,44 @@ body{
 ::-webkit-scrollbar-thumb:hover {
   background: #bdbdbd;
 }
+
+.react-datepicker-wrapper {
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.react-datepicker__input-container {
+  display: flex;
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.react-datepicker__input-container input {
+  padding: 7px 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: 14px;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  -webkit-transition: border-bottom-color 0.25s ease-in;
+  transition: border-bottom-color 0.25s ease-in;
+  color: #183D43;
+  background: #FFFFFF;
+  &:focus-visible {
+    outline: none;
+  }
+  &:focus {
+    border-bottom: ${({ theme }) => `2px solid ${theme.color.primary}`};
+    outline: 0;
+  }
+
+  ::placeholder {
+    color: ${({ theme }) => theme.color.primary};
+    opacity: 0.5;
+    font-size: 14px;
+  }
+}
 `

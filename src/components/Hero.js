@@ -1,9 +1,15 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import Button from "./generic/Button"
+import Radio from "./generic/Radio"
 import video from "../assets/videos/video.mp4"
+import { CardInput } from "../pages/contact"
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Hero = () => {
+  const [startDate, setStartDate] = useState();
+
   return (
     <HeroContainer>
       <HeroBg>
@@ -12,14 +18,46 @@ const Hero = () => {
       <HeroContent>
         <HeroItems>
           <RiseUp>
-            <HeroH1>Unreal Destinations</HeroH1>
+        <HeroH1>Unreal Destinations</HeroH1>
             <HeroP>Out of this world</HeroP>
           </RiseUp>
-          <Button onClick={() => {
+          {/* <Button onClick={() => {
             window.location.href = "#trips";
           }} big="true">
             Explore
-          </Button>
+          </Button> */}
+          <MainForm action="https://formsubmit.co/ayush.singh.96@gmail.com" method="POST">
+            <h5 style={{
+              color: "#183D43",
+              fontSize: 16
+            }}>Provide the below details to plan a perfect holiday</h5>
+            <FormGroup>
+              <FieldGroup>
+                <Radio name="destinationType" value="International" />
+                <Radio name="destinationType" value="National" />
+              </FieldGroup>
+              <CardInput type="text" name="packageName" placeholder="Destination/Package Name" required />
+              <FieldGroup>
+              <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} placeholderText="Date of departure" />
+              <CardInput type="text" name="city" placeholder="City of Departure" required />
+              </FieldGroup>
+              <FieldGroup>
+                <CardInput type="text" name="name" placeholder="Name" required />
+                <CardInput type="text" pattern="\d*" maxLength="10" name="mobileNumber" inputMode="numeric" placeholder="Mobile Number" required />
+              </FieldGroup>
+              <CardInput type="email" name="email" placeholder="Email Address" required />
+              <Button
+                type="submit"
+                round="true"
+                primary={true}
+                style={{
+                  marginTop: 12
+                }}
+              >
+                Send Query
+              </Button>
+            </FormGroup>
+          </MainForm>
         </HeroItems>
       </HeroContent>
     </HeroContainer>
@@ -81,9 +119,10 @@ const HeroContent = styled.div`
 const HeroItems = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   text-align: center;
+  gap: 40px;
   height: 100vh;
   max-height: 100%;
   padding: 0;
@@ -121,4 +160,24 @@ const RiseUp = styled.div`
     }
   }
 `;
+
+const MainForm = styled.form`
+  background: #fff;
+  opacity: 0.8;
+  padding: 24px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+`
+
+const FormGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+`
+
+const FieldGroup = styled.div`
+  display: flex;
+  gap: 8px;
+`
 export default Hero

@@ -183,7 +183,7 @@ const InputLabel = styled.label`
   color: ${({ theme }) => theme.color.primary};
 `
 
-const CardInput = styled.input`
+export const CardInput = styled.input`
   padding: 7px 0;
   width: 100%;
   font-family: inherit;

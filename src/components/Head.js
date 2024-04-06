@@ -79,7 +79,7 @@ const Header = ({ currentTheme }) => {
           Phone Number: +91 8299469482
         </span>
       </ContactInfo>
-      <Button round={true}>Pay Now</Button>
+      <PayButton round={true}>Pay Now</PayButton>
       </Right>
     </Nav>
 
@@ -124,8 +124,9 @@ const ContactInfo = styled.div`
   color: ${({ theme }) => theme.color.primary};
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 4px;
-  font-size: 16px;
+  font-size: 12px;
 `
 
 const Right = styled.div`
@@ -151,6 +152,12 @@ const NavMenu = styled.div`
   flex: 1;
   display: flex;
   @media screen and (max-width: 786px) {
+    display: none;
+  }
+`
+
+const PayButton = styled(Button)`
+  @media screen and (max-width: 768px) {
     display: none;
   }
 `
